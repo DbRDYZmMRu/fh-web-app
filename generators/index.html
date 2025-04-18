@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON Generator</title>
+  <style>
+    textarea {
+      width: 100%;
+      height: 200px;
+      padding: 10px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>JSON Generator</h1>
+  <button id="generate-json">Generate JSON</button>
+  <button id="download-json">Download JSON</button>
+  <pre id="json-output"></pre>
+  
+  <script>
+    const dataBlob = {
+      dedication: `<p class="text-center">To <strong style="color: #010521"> my mom, <span class="fw-bold">Kathleen Elizabeth Hilton</span>  </strong></p>`,
+      acknowledgements: `<p>         Book five delivers a taciturnous salve — two poems, as my mom turns sixty-six. My hope is with the little, she's with enough of my thoughts, to rock to. But if you're looking for more poems for her, then give Frith Hilton Collection II a read, there are some in there, which is a good start. So many thanks for my enablers: you keep my writing ink replenished and my lamp’s oil abrim. Thank you for your support.</p>
+          
+          <p>         So many thanks for my enablers: you keep my writing ink replenished and my lamp’s oil abrim. Thank you for your support.</p>`,
+      authorsNote: [
+        ` <img class="img-fluid" src="../../images/collections/drCarlHill/five/Mom.jpg" alt="Kathleen Elizabeth Hilton">
+            <p class="text-center mt-1"> <span class="fw-bold">Mom</span> </p>`,
+      ],
+      chapterTitles: ["0", "Mom's cover-up", "While she's spot-on"],
+      
+      chapters: [
+        `0`,
+        
+        `<p>My meals taste how I mean</p>
+            <p>cooking to heat, to pretty hit</p>
+            <p> </p>
+            <p>tonight, it's the palate’s degree</p>
+            <p>starting with the kettle’s hissing</p>
+            <p>as yet, a maravedi in its ill speak</p>
+            <p>the pot’s far in height blackening</p>
+            <p>steaming gifts to perceive in relish </p>
+            <p> </p>
+            <p>ingredients say the cool in her real</p>
+            <p>as the pissed dissolves to cleaving</p>
+            <p>and gets this chef too sore to lick</p>
+            <p>her eccentricity line in the recipe</p>
+            <p> </p>
+            <p><i>well, I'm picky</i></p>
+            <p> </p>
+            <p>along, dough rued, said fatigued</p>
+            <p> </p>
+            <p>affixed to her sweet tooth tip</p>
+            <p>are the lies she too tells squeaky</p>
+            <p>lo, daily, weekly — ever plate clean</p>
+            <p>every day is a solstice in her kitchen</p>
+            <p>all waiting is of this chef’s serving. </p>`,
+        
+        `<p>My mom has such a beautiful heart</p>
+            <p>one so demure in failing a polygraph</p>
+            <p>by actions making up a balanced diet</p>
+            <p>heavier than any scale’s mass bracket </p>
+            <p>so she's my forever mouthful of thanks</p>
+            <p>resulting feeling of big lotto settlements</p>
+            <p>I swallow her up now, piecing her apart</p>
+            <p>as I would a remedy for a doubtful fever. </p>`,
+        
+      ],
+      
+      
+    };
+    
+    console.log(dataBlob);
+    
+    const generateJsonButton = document.getElementById('generate-json');
+    const downloadJsonButton = document.getElementById('download-json');
+    const jsonOutput = document.getElementById('json-output');
+    
+    generateJsonButton.addEventListener('click', () => {
+      const data = { ...dataBlob };
+      const bookData = generateJson(data);
+      jsonOutput.textContent = bookData;
+    });
+    downloadJsonButton.addEventListener('click', () => {
+      const jsonData = jsonOutput.textContent;
+      if (jsonData) {
+        const blob = new Blob([jsonData], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'book.json';
+        a.click();
+      }
+    });
+    
+    function generateJson(data) {
+      if (!data ||
+        !data.dedication ||
+        !data.acknowledgements ||
+        !data.authorsNote ||
+        !data.chapterTitles ||
+        !data.chapters) {
+        return "Invalid data";
+      }
+      
+      const bookData = {
+        title: "Book Title",
+        cover: "Book Cover",
+        dedication: data.dedication,
+        acknowledgement: data.acknowledgements,
+        authorNote: data.authorsNote,
+        metadata: {
+          year: "1990",
+          publisher: "FNE",
+          isbn: "0-0-0",
+          genre: "poetry"
+        },
+        chapters: []
+      };
+      
+      let chapterId = 1;
+      for (let i = 0; i < data.chapterTitles.length; i++) {
+        if (data.chapterTitles[i] === "0" && data.chapters[i] === "0") {
+          continue;
+        }
+        bookData.chapters.push({
+          id: chapterId,
+          title: data.chapterTitles[i],
+          data: data.chapters[i]
+        });
+        chapterId++;
+      }
+      
+      return JSON.stringify(bookData, null, 4);
+    }
+  </script>
+</body>
+
+</html>
