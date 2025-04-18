@@ -1,4 +1,4 @@
-import { store } from "../global.js";
+import { store } from "../../global.js";
 export function initDiv() {
   const appDiv = document.createElement('div');
   appDiv.id = 'app';
