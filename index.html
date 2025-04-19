@@ -1,57 +1,11 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Music & Poetry App</title>
 </head>
-
 <body v-scope="store">
-   <header>
-    <h1>Music & Poetry App</h1>
-    <nav>
-      <button @click="path('/')">Home</button>
-      <button @click="path('/musicpool')">Music</button>
-      <button @click="path('/reader')">Reader</button>
-      <button @click="path('/home')">Home II</button>
-      <button @click="path('/upcoming')">Upcoming</button>
-    </nav>
-  </header>
-  <main>
-    <div v-if="store.route === 'home'">
-      <h2>Welcome to the Home Page</h2>
-    </div>
-    <div v-if="store.route === 'music'">
-      <h2>Music Section</h2>
-    </div>
-    <div v-if="store.route === 'poetry'">
-      <h2>Poetry Section</h2>
-    </div>
-    <div v-if="store.route === 'reader'">
-      <h2>Reader Section</h2>
-    </div>
-    <div v-if="store.route === 'upcoming'">
-      <h2>upcoming Page</h2>
-    </div>
-  </main>
-  
-  <p>{{store.someValue}} is okay</p>
-  <p>{{store}} is okay</p>
-  <input v-model="store.someValue" type="text" name="" id="" value="" />
-  
-  <p @click="store.getDate()">click here</p>
-  
-  
-  
-  <p>Main App: IP Access is {{ store.IPAccess ? 'Enabled' : 'Disabled' }}</p>
-  <p>{{ store.workPlan }}</p>
-  <button @click="store.toggleIPAccess()">Toggle IP Access</button>
-  
-  
-  
-
-    <script type="module" src="./main.js"></script>
+  <script type="module" src="./main.js"></script>
 </body>
-
 </html>
