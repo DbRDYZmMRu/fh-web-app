@@ -16,8 +16,8 @@ async function fetchEnvConfig() {
 }
 
 /**
- * Middleware to dynamically manage assets for the current route.
- * It removes unnecessary assets (from the DOM and `store`), loads missing ones, and updates the `store`.
+ * Middleware to reload all assets for the current route.
+ * It unloads all previous assets, then loads required assets for the new route.
  */
 export async function dynamicMiddleware(ctx, next) {
   const envConfig = await fetchEnvConfig();
@@ -36,23 +36,16 @@ export async function dynamicMiddleware(ctx, next) {
   const requiredCssFiles = [...new Set([...groupConfig.cssFiles, ...routeConfig.cssFiles])];
   const requiredJsFiles = [...new Set([...groupConfig.jsFiles, ...routeConfig.jsFiles])];
   
-  // Unload unnecessary assets and clean the DOM
-  const cssToUnload = store.cssFiles.filter((file) => !requiredCssFiles.includes(file));
-  const jsToUnload = store.jsFiles.filter((file) => !requiredJsFiles.includes(file));
+  // Unload all previously loaded assets
+  store.cssFiles.forEach((file) => unloadCSS(file, store.BASE_URL));
+  store.jsFiles.forEach((file) => unloadJS(file, store.BASE_URL));
   
-  cssToUnload.forEach((file) => unloadCSS(file, store.BASE_URL)); // Removes <link> from the DOM
-  jsToUnload.forEach((file) => unloadJS(file, store.BASE_URL)); // Removes <script> from the DOM
-  
-  // Determine missing assets
-  const missingCssFiles = requiredCssFiles.filter((file) => !store.cssFiles.includes(file));
-  const missingJsFiles = requiredJsFiles.filter((file) => !store.jsFiles.includes(file));
-  
-  // Load missing assets
-  if (missingCssFiles.length > 0) {
-    loadSingleOrArray(missingCssFiles, loadCSS, store.BASE_URL);
+  // Load required assets for the new route
+  if (requiredCssFiles.length > 0) {
+    loadSingleOrArray(requiredCssFiles, loadCSS, store.BASE_URL);
   }
-  if (missingJsFiles.length > 0) {
-    loadSingleOrArray(missingJsFiles, loadJS, store.BASE_URL);
+  if (requiredJsFiles.length > 0) {
+    loadSingleOrArray(requiredJsFiles, loadJS, store.BASE_URL);
   }
   
   // Update the store with the new assets
@@ -62,6 +55,6 @@ export async function dynamicMiddleware(ctx, next) {
   store.jsFiles = requiredJsFiles;
   store.BASE_URL = envConfig.baseUrl || "";
   
-  console.log(`Assets updated and DOM cleaned for route: ${ctx.pathname}`);
+  console.log(`All resources reloaded for route: ${ctx.pathname}`);
   next(); // Proceed to the next middleware or route handler
 }
