@@ -1,6 +1,6 @@
 import { store } from "../../store/index.js";
 import { initDiv } from "./initDiv.js";
-import { initializeRouter } from "../../router/index.js";
+import { initializeRouter } from "../../router/initializeRouter.js";
 
 // Function to initialize the app's global state
 export function initializeApp() {

@@ -1,27 +1,28 @@
 import page from "../lib/page.mjs.js";
-import { dynamicMiddleware } from "./middleware.js";
+import { groupMiddleware } from "./groupMiddleware.js";
+import { dynamicMiddleware } from "./dynamicMiddleware.js";
 import { store } from "../global.js";
 
 // Function to initialize the router
 export function initializeRouter() {
-  // Define routes with dynamic middleware
-  page("/", dynamicMiddleware, () => {
+  // Define routes with group and dynamic middleware
+  page("/", groupMiddleware, dynamicMiddleware, () => {
     console.log("Navigated to Home");
   });
   
-  page("/home", dynamicMiddleware, () => {
+  page("/home", groupMiddleware, dynamicMiddleware, () => {
     console.log("Navigated to Home");
   });
   
-  page("/reader", dynamicMiddleware, () => {
+  page("/reader", groupMiddleware, dynamicMiddleware, () => {
     console.log("Navigated to Reader");
   });
   
-  page("/upcoming", dynamicMiddleware, () => {
+  page("/upcoming", groupMiddleware, dynamicMiddleware, () => {
     console.log("Navigated to Upcoming Events");
   });
   
-  page("/musicpool", dynamicMiddleware, () => {
+  page("/musicpool", groupMiddleware, dynamicMiddleware, () => {
     console.log("Navigated to Music Pool");
   });
   

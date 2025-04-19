@@ -52,3 +52,6 @@ export function initDiv() {
   
   document.body.innerHTML += mainDiv;
 }
+
+
+
