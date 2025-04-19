@@ -137,3 +137,53 @@ loadSingleOrArray(singleJsFile, loadJS);
 
 // Example of loading multiple JS files
 loadSingleOrArray(jsFiles, loadJS);
+
+
+
+
+
+
+
+
+You can define multiple middleware functions in a single file and export them.
+
+Here's an example:
+
+middleware/index.js
+```
+function auth(ctx, next) {
+  if (!ctx.user) {
+    page.redirect('/login');
+  } else {
+    next();
+  }
+}
+
+function loadAssets(ctx, next) {
+  // Load assets logic here
+  next();
+}
+
+function logRequest(ctx, next) {
+  console.log('Request logged');
+  next();
+}
+
+export { auth, loadAssets, logRequest };
+```
+
+routes.js
+```
+import page from 'page';
+import { auth, loadAssets, logRequest } from './middleware';
+
+page('/protected', auth, loadAssets, logRequest, (ctx) => {
+  // This route handler will only be executed if all middleware functions pass
+});
+```
+
+In this example, multiple middleware functions (`auth`, `loadAssets`, and `logRequest`) are defined in a single file (`middleware/index.js`) and exported.
+
+You can then import and use these middleware functions in your routes as needed.
+
+This approach can help keep your code organized and make it easier to manage multiple middleware functions.
