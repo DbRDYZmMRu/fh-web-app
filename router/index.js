@@ -9,17 +9,6 @@ import {
   unloadSingleOrArray
 } from "../runtime/assets/index.js";
 
-
-
-
-
-
-
-// Example CSS and JS files
-const cssFiles = ["../assets/css/style.css"];
-const jsFiles = ["../assets/js/jquery.js", "../assets/js/app.js", "../assets/js/vendors.js"];
-
-
 // Function to initialize the router
 export function initializeRouter() {
   // Define routes
@@ -29,8 +18,8 @@ export function initializeRouter() {
   });
   page("/home", () => {
     // Example of loading CSS files
-    loadSingleOrArray(cssFiles, loadCSS);
-    loadSingleOrArray(jsFiles, loadJS);
+    loadSingleOrArray(store.cssFiles, loadCSS, store.BASE_URL);
+    loadSingleOrArray(store.jsFiles, loadJS, store.BASE_URL);
     store.route = "home";
   });
   
@@ -44,10 +33,10 @@ export function initializeRouter() {
   
   page("/musicpool", () => {
 // Example of unloading CSS files
-unloadSingleOrArray(cssFiles, unloadCSS);
+unloadSingleOrArray(store.cssFiles, unloadCSS, store.BASE_URL);
 
 // Example of unloading JS files
-unloadSingleOrArray(jsFiles, unloadJS);
+unloadSingleOrArray(store.jsFiles, unloadJS, store.BASE_URL);
     store.route = "musicpool";
   });
   

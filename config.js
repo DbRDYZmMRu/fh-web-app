@@ -1,6 +1,9 @@
 import { reactive } from "./lib/petite-vue.js";
 
 const config = reactive({
+  BASE_URL: 'https://github.com/DbRDYZmMRu/fh-web-app/', 
+  cssFiles: ["../assets/css/style.css"],
+  jsFiles: ["../assets/js/jquery.js", "../assets/js/app.js", "../assets/js/vendors.js"],
   IPAccess: false,
   workPlan: "is to get more modules",
   initialCountNo: 10,
