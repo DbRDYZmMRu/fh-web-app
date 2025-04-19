@@ -1,5 +1,19 @@
 import page from "../lib/page.mjs.js";
 import { store } from "../global.js";
+import { loadCSS } from "../runtime/assets/loadCSS.js";
+import { loadJS } from "../runtime/assets/loadJS.js";
+import { loadSingleOrArray } from "../runtime/assets/assetLoader.js";
+import { unloadSingleOrArray } from "../runtime/assets/assetUnLoader.js";
+
+
+
+
+
+
+// Example CSS and JS files
+const cssFiles = ["../assets/css/style.css"];
+const jsFiles = ["../assets/js/app.js", "../assets/js/vendors.js"];
+
 
 // Function to initialize the router
 export function initializeRouter() {
@@ -9,6 +23,9 @@ export function initializeRouter() {
     store.route = "home"; // Update the store's route state
   });
   page("/home", () => {
+    // Example of loading CSS files
+    loadSingleOrArray(cssFiles, loadCSS);
+    loadSingleOrArray(jsFiles, loadJS);
     store.route = "home";
   });
   
@@ -21,6 +38,8 @@ export function initializeRouter() {
   });
   
   page("/musicpool", () => {
+    // Example of unloading CSS files
+    unloadSingleOrArray(cssFiles, unloadCSS);
     store.route = "musicpool";
   });
   

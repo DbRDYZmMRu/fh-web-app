@@ -114,3 +114,26 @@ import { store, storage } from '../../global.js';
 ```
 
 But `* as g` can be a good solution when you need to access many exports or when you're working with a large module.
+
+
+
+
+
+
+import { loadCSS } from "./loadCSS.js";
+import { loadJS } from "./loadJS.js";
+import { loadSingleOrArray } from "./utils.js";
+
+// Example CSS and JS files
+const cssFiles = ["styles.css"];
+const jsFiles = ["script1.js", "script2.js"];
+
+// Example of loading CSS files
+loadSingleOrArray(cssFiles, loadCSS);
+
+// Example of loading a single JS file
+const singleJsFile = "script3.js";
+loadSingleOrArray(singleJsFile, loadJS);
+
+// Example of loading multiple JS files
+loadSingleOrArray(jsFiles, loadJS);
