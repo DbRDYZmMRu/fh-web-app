@@ -1,41 +1,28 @@
 import page from "../lib/page.mjs.js";
+import { dynamicMiddleware } from "./middleware.js";
 import { store } from "../global.js";
-import { loadAssetsMiddleware, unloadAssetsMiddleware } from "./middleware.js";
 
 // Function to initialize the router
 export function initializeRouter() {
-  // Define routes with middleware for loading/unloading assets
-  page("/", loadAssetsMiddleware, () => {
+  // Define routes with dynamic middleware
+  page("/", dynamicMiddleware, () => {
     console.log("Navigated to Home");
-    store.route = "home"; // Update the store's route state
   });
   
-  page("/home", loadAssetsMiddleware, () => {
-    store.route = "home";
+  page("/home", dynamicMiddleware, () => {
+    console.log("Navigated to Home");
   });
   
-  page("/reader", loadAssetsMiddleware, () => {
-    store.route = "reader";
+  page("/reader", dynamicMiddleware, () => {
+    console.log("Navigated to Reader");
   });
   
-  page("/upcoming", loadAssetsMiddleware, () => {
-    store.route = "upcoming";
+  page("/upcoming", dynamicMiddleware, () => {
+    console.log("Navigated to Upcoming Events");
   });
   
-  page("/musicpool", unloadAssetsMiddleware, () => {
-    store.route = "musicpool";
-  });
-  
-  page("/cookies", () => {
-    store.route = "cookies";
-  });
-  
-  page("/bio", () => {
-    store.route = "bio";
-  });
-  
-  page("/login", () => {
-    store.route = "login";
+  page("/musicpool", dynamicMiddleware, () => {
+    console.log("Navigated to Music Pool");
   });
   
   // Start the router

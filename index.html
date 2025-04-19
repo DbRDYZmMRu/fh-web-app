@@ -13,9 +13,9 @@
     <nav>
       <button @click="path('/')">Home</button>
       <button @click="path('/musicpool')">Music</button>
-      <button @click="path('/poetry')">Poetry</button>
+      <button @click="path('/reader')">Reader</button>
       <button @click="path('/home')">Home II</button>
-      <button @click="path('/login')">Login</button>
+      <button @click="path('/upcoming')">Upcoming</button>
     </nav>
   </header>
   <main>
@@ -28,11 +28,11 @@
     <div v-if="store.route === 'poetry'">
       <h2>Poetry Section</h2>
     </div>
-    <div v-if="store.route === 'books'">
-      <h2>Books Section</h2>
+    <div v-if="store.route === 'reader'">
+      <h2>Reader Section</h2>
     </div>
-    <div v-if="store.route === 'login'">
-      <h2>Login Page</h2>
+    <div v-if="store.route === 'upcoming'">
+      <h2>upcoming Page</h2>
     </div>
   </main>
   

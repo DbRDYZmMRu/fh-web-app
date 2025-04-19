@@ -1,12 +1,7 @@
-export async function unloadJS(file, baseUrl = "") {
-  const resolvedUrl = new URL(file, `${window.location.origin}${baseUrl}`).href; // Normalize the URL
-  const scripts = document.querySelectorAll(`script[src="${resolvedUrl}"]`);
-  scripts.forEach((script) => {
-    script.parentNode.removeChild(script);
-    console.log(`JS file unloaded: ${resolvedUrl}`);
-  });
+export function unloadJS(file, baseUrl) {
+  const fullPath = `${baseUrl}${file}`;
+  const scriptElements = document.querySelectorAll(`script[src="${fullPath}"]`);
   
-  if (scripts.length === 0) {
-    console.warn(`JS file not found: ${resolvedUrl}`);
-  }
+  scriptElements.forEach((script) => script.remove()); // Remove the <script> element from the DOM
+  console.log(`Unloaded JS: ${fullPath}`);
 }

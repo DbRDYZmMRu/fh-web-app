@@ -2,7 +2,9 @@ import { reactive } from "./lib/petite-vue.js";
 
 const config = reactive({
   BASE_URL: '/', 
-  cssFiles: ["../assets/css/style.css"],
+  baseCSSFiles: ["../assets/css/style.css"],
+  baseJSFiles: ["../assets/js/jquery.js", "../assets/js/app.js", "../assets/js/vendors.js"],
+cssFiles: ["../assets/css/style.css"],
   jsFiles: ["../assets/js/jquery.js", "../assets/js/app.js", "../assets/js/vendors.js"],
   IPAccess: false,
   workPlan: "is to get more modules",

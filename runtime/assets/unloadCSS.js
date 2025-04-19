@@ -1,12 +1,7 @@
-export async function unloadCSS(file, baseUrl = "") {
-  const resolvedUrl = new URL(file, `${window.location.origin}${baseUrl}`).href; // Normalize the URL
-  const links = document.querySelectorAll(`link[rel="stylesheet"][href="${resolvedUrl}"]`);
-  links.forEach((link) => {
-    link.parentNode.removeChild(link);
-    console.log(`CSS file unloaded: ${resolvedUrl}`);
-  });
+export function unloadCSS(file, baseUrl) {
+  const fullPath = `${baseUrl}${file}`;
+  const linkElements = document.querySelectorAll(`link[rel="stylesheet"][href="${fullPath}"]`);
   
-  if (links.length === 0) {
-    console.warn(`CSS file not found: ${resolvedUrl}`);
-  }
+  linkElements.forEach((link) => link.remove()); // Remove the <link> element from the DOM
+  console.log(`Unloaded CSS: ${fullPath}`);
 }
