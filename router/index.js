@@ -1,42 +1,28 @@
 import page from "../lib/page.mjs.js";
 import { store } from "../global.js";
-import {
-  loadCSS,
-  loadJS,
-  unloadCSS,
-  unloadJS,
-  loadSingleOrArray,
-  unloadSingleOrArray
-} from "../runtime/assets/index.js";
+import { loadAssetsMiddleware, unloadAssetsMiddleware } from "./middleware.js";
 
 // Function to initialize the router
 export function initializeRouter() {
-  // Define routes
-  page("/", () => {
+  // Define routes with middleware for loading/unloading assets
+  page("/", loadAssetsMiddleware, () => {
     console.log("Navigated to Home");
     store.route = "home"; // Update the store's route state
   });
-  page("/home", () => {
-    // Example of loading CSS files
-    loadSingleOrArray(store.cssFiles, loadCSS, store.BASE_URL);
-    loadSingleOrArray(store.jsFiles, loadJS, store.BASE_URL);
+  
+  page("/home", loadAssetsMiddleware, () => {
     store.route = "home";
   });
   
-  page("/reader", () => {
+  page("/reader", loadAssetsMiddleware, () => {
     store.route = "reader";
   });
   
-  page("/upcoming", () => {
+  page("/upcoming", loadAssetsMiddleware, () => {
     store.route = "upcoming";
   });
   
-  page("/musicpool", () => {
-// Example of unloading CSS files
-unloadSingleOrArray(store.cssFiles, unloadCSS, store.BASE_URL);
-
-// Example of unloading JS files
-unloadSingleOrArray(store.jsFiles, unloadJS, store.BASE_URL);
+  page("/musicpool", unloadAssetsMiddleware, () => {
     store.route = "musicpool";
   });
   

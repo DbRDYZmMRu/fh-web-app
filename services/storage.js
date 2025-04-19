@@ -187,3 +187,59 @@ In this example, multiple middleware functions (`auth`, `loadAssets`, and `logRe
 You can then import and use these middleware functions in your routes as needed.
 
 This approach can help keep your code organized and make it easier to manage multiple middleware functions.
+
+
+
+
+
+
+
+To display the page source code, you can use the `innerHTML` property or `outerHTML` property of the `document.documentElement` object.
+
+Here's an example:
+
+```
+const sourceCode = document.documentElement.outerHTML;
+const codeElement = document.getElementById('code');
+codeElement.textContent = sourceCode;
+```
+
+This will display the HTML source code of the current page.
+
+If you want to display the source code in a formatted way, you can use a library like Prism.js or Highlight.js.
+
+You can also use the `XMLSerializer` API to serialize the DOM to a string:
+
+```
+const serializer = new XMLSerializer();
+const sourceCode = serializer.serializeToString(document);
+const codeElement = document.getElementById('code');
+codeElement.textContent = sourceCode;
+```
+
+Note that this will give you the current state of the DOM, which may have changed since the initial page load due to JavaScript modifications.
+
+You can display the source code in a `<pre>` or `<code>` element:
+
+```
+<pre id="code"></pre>
+```
+
+Style the code block as needed using CSS.
+
+
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+
+
+
+<pre><code class="language-html" id="code"></code></pre>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-html.min.js"></script>
+
+<script>
+  const sourceCode = document.documentElement.outerHTML;
+  const codeElement = document.getElementById('code');
+  codeElement.textContent = sourceCode;
+  Prism.highlightElement(codeElement);
+</script>
