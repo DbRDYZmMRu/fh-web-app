@@ -1,5 +1,7 @@
 import { loadCSS, loadJS } from "../../runtime/assets/index.js";
 import { store } from "../../global.js";
+import { fetchTemplate } from "./resourceManager.js";
+
 
 /**
  * Middleware to handle route-specific resources.
@@ -26,6 +28,9 @@ export async function dynamicMiddleware(ctx, next) {
     routeJsFiles.forEach((file) => loadJS(file, store.BASE_URL));
     store.jsFiles.push(...routeJsFiles);
   }
+  
+  // Load route-specific template
+  document.getElementById("main-content").innerHTML = await fetchTemplate(routeConfig.template);
   
   console.log(`Route resources loaded for route: ${ctx.pathname}`);
   next();
