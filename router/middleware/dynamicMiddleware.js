@@ -29,8 +29,13 @@ export async function dynamicMiddleware(ctx, next) {
     store.jsFiles.push(...routeJsFiles);
   }
   
-  // Load route-specific template
-  document.getElementById("main-content").innerHTML = await fetchTemplate(routeConfig.template);
+  store.route = ctx.pathname;
+  
+  
+  
+
+  
+
   
   console.log(`Route resources loaded for route: ${ctx.pathname}`);
   next();

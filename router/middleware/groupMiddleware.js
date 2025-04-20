@@ -31,15 +31,6 @@ export async function groupMiddleware(ctx, next) {
     store.jsFiles.push(...groupJsFiles);
   }
   
-  // Load group-level templates
-  document.getElementById("body-header").innerHTML = await fetchTemplate(groupConfig.headerTemplate);
-  document.getElementById("body-navigation").innerHTML = await fetchTemplate(groupConfig.navigationTemplate);
-  document.getElementById("body-footer").innerHTML = await fetchTemplate(groupConfig.footerTemplate);
-  
-  // Update the store with the new assets
-  store.route = ctx.pathname;
-  store.title = `${routeConfig.title} | ${groupConfig.titleTail || ""}`.trim();
-  
   
   console.log(`Group resources loaded for group: ${routeConfig.group}`);
   next();

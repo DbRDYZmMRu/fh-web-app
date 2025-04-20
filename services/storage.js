@@ -243,3 +243,22 @@ Style the code block as needed using CSS.
   codeElement.textContent = sourceCode;
   Prism.highlightElement(codeElement);
 </script>
+
+
+
+
+  // Load route-specific template
+  document.getElementById("main-content").innerHTML = await fetchTemplate(routeConfig.template);
+  
+    // Update the store with the new assets
+  store.route = ctx.pathname;
+  store.title = `${routeConfig.title} | ${groupConfig.titleTail || ""}`.trim();
+
+
+
+
+
+  // Load group-level templates
+  document.getElementById("body-header").innerHTML = await fetchTemplate(groupConfig.headerTemplate);
+  document.getElementById("body-navigation").innerHTML = await fetchTemplate(groupConfig.navigationTemplate);
+  document.getElementById("body-footer").innerHTML = await fetchTemplate(groupConfig.footerTemplate);

@@ -22,19 +22,19 @@ export function initDiv() {
   <p @click="store.getDate()">click here</p>
   
   <main>
-    <div v-if="store.route === 'home'">
+    <div v-if="store.route === '/home'">
       <h2>Welcome to the Home Page</h2>
     </div>
-    <div v-if="store.route === 'music'">
+    <div v-if="store.route === '/music'">
       <h2>Music Section</h2>
     </div>
-    <div v-if="store.route === 'poetry'">
+    <div v-if="store.route === '/poetry'">
       <h2>Poetry Section</h2>
     </div>
-    <div v-if="store.route === 'reader'">
+    <div v-if="store.route === '/reader'">
       <h2>Reader Section</h2>
     </div>
-    <div v-if="store.route === 'upcoming'">
+    <div v-if="store.route === '/upcoming'">
       <h2>upcoming Page</h2>
     </div>
   </main>
