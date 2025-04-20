@@ -6,6 +6,12 @@
   <title>Frith Hilton</title>
 </head>
 <body v-scope="store">
+  <pre>{{store.pageComponents}}</pre>
+  <button @click="path('/upcoming')">Upcoming</button>
+  <button @click="path('/reader')">Reader</button>
+  <button id="button-id">Add a new one</button>
   <script type="module" src="./main.js"></script>
 </body>
 </html>
+
+

@@ -4,6 +4,7 @@ const config = reactive({
   BASE_URL: '/',
   cssFiles: [],
   jsFiles: [],
+  pageComponents: ['body'],
   IPAccess: false,
   workPlan: "is to get more modules",
   initialCountNo: 10,

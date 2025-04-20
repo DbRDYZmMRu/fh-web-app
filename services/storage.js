@@ -262,3 +262,79 @@ Style the code block as needed using CSS.
   document.getElementById("body-header").innerHTML = await fetchTemplate(groupConfig.headerTemplate);
   document.getElementById("body-navigation").innerHTML = await fetchTemplate(groupConfig.navigationTemplate);
   document.getElementById("body-footer").innerHTML = await fetchTemplate(groupConfig.footerTemplate);
+
+
+
+
+
+
+If you have the `mainDiv` created in one JavaScript file and want to access and edit it from another JavaScript file, you can do so by exporting the `mainDiv` element or a function that returns it.
+
+Here are a few ways to achieve this:
+
+*1. Export the `mainDiv` element*
+
+```
+// main.js
+export const mainDiv = document.createElement('div');
+mainDiv.id = 'body';
+document.body.appendChild(mainDiv);
+```
+
+```
+// otherFile.js
+import { mainDiv } from './main.js';
+
+const headerDiv = document.createElement('div');
+headerDiv.innerHTML = headerTemplate();
+mainDiv.appendChild(headerDiv);
+```
+
+*2. Export a function that returns the `mainDiv` element*
+
+```
+// main.js
+let mainDiv;
+
+export function getMainDiv() {
+  if (!mainDiv) {
+    mainDiv = document.createElement('div');
+    mainDiv.id = 'body';
+    document.body.appendChild(mainDiv);
+  }
+  return mainDiv;
+}
+```
+
+```
+// otherFile.js
+import { getMainDiv } from './main.js';
+
+const mainDiv = getMainDiv();
+const headerDiv = document.createElement('div');
+headerDiv.innerHTML = headerTemplate();
+mainDiv.appendChild(headerDiv);
+```
+
+*3. Use a DOM manipulation function*
+
+```
+// main.js
+export function appendToMainDiv(element) {
+  const mainDiv = document.getElementById('body');
+  if (mainDiv) {
+    mainDiv.appendChild(element);
+  }
+}
+```
+
+```
+// otherFile.js
+import { appendToMainDiv } from './main.js';
+
+const headerDiv = document.createElement('div');
+headerDiv.innerHTML = headerTemplate();
+appendToMainDiv(headerDiv);
+```
+
+These approaches allow you to access and edit the `mainDiv` element from another JavaScript file.

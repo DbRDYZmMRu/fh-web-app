@@ -3,6 +3,7 @@ import { store } from "../../global.js";
 import { fetchTemplate } from "./resourceManager.js";
 
 
+
 /**
  * Middleware to handle route-specific resources.
  */

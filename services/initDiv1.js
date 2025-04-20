@@ -26,7 +26,7 @@ export function initDiv() {
       <!-- Footer Section -->
       <div id="body-footer"></div>
     </div>
-   {{store.route}} 
+   
   `;
   document.body.innerHTML += mainDiv;
 
