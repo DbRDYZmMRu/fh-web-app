@@ -6,8 +6,6 @@ export const baseDiv = document.createElement('div');
 baseDiv.id = 'body';
 document.body.appendChild(baseDiv);
 
-
-
 export function renderComponents() {
   let html = '';
   Object.keys(templates).forEach((componentId) => {
