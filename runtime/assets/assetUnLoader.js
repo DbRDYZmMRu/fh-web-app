@@ -4,7 +4,7 @@ import { unloadJS } from "./unloadJS.js";
 /**
  * Load files sequentially.
  * @param {Array} files - An array of file paths to unload.
- * @param {Function} loader - Function to unload a single file (e.g., unloadCSS or u.loadJS).
+ * @param {Function} loader - Function to unload a single file (e.g., unloadCSS or unloadJS).
  */
 export async function unloadFilesSequentially(files, unloader, baseUrl = "") {
   try {

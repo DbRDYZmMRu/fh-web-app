@@ -5,13 +5,6 @@ import { store } from "../../global.js";
  * Unload all currently loaded resources.
  */
 export function unloadAllResources() {
-  // Unload all CSS files
-  store.cssFiles.forEach((file) => unloadCSS(file, store.BASE_URL));
-  store.cssFiles = []; // Clear the store
-  
-  // Unload all JS files
-  store.jsFiles.forEach((file) => unloadJS(file, store.BASE_URL));
-  store.jsFiles = []; // Clear the store
-  
-  console.log("All resources unloaded.");
+  document.querySelectorAll("link[rel='stylesheet']").forEach((link) => link.remove());
+  document.querySelectorAll("script").forEach((script) => script.remove());
 }
