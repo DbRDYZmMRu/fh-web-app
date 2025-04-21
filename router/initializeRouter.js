@@ -6,7 +6,7 @@ import { store } from "../global.js";
 import { routePageLoader } from '../runtime/app/routePageLoader.js';
 
 
-import { albumsPage } from "../assets/templates/route/albumsPage.js"
+import { albumsPageID, albumsPage } from "../assets/templates/route/albumsPage.js"
 
 
 
@@ -30,8 +30,8 @@ export function initializeRouter() {
     console.log("Navigated to Reader");
   });
   
-  page("/upcoming",  groupMiddleware, dynamicMiddleware, () => {
-    routePageLoader(albumsPage);
+  page("/upcoming", loadData, groupMiddleware, dynamicMiddleware, () => {
+    routePageLoader(albumsPageID, albumsPage);
     console.log("Navigated to Upcoming Events");
   });
   

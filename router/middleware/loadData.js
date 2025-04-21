@@ -7,7 +7,7 @@ export function loadData(ctx, next) {
       setTimeout(() => {
         // Hide the body
         document.body.style.display = '';
-      }, 1000); // 1000ms = 1s delay
+      }, 2000); // 1000ms = 1s delay
       loader.style.display = 'block'; // Show the loader
       setTimeout(() => {
         // Hide the loader
