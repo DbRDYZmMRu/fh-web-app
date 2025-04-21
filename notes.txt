@@ -2,22 +2,56 @@
 
 
 
+Appending to the Body
+If you want to append the HTML directly to the body instead of the `baseDiv`, you can modify the `renderComponents` function like this:
 
+```
+export function renderComponents() {
+let html = '';
+Object.keys(templates).forEach((componentId) => {
+store.pageComponents.push(componentId);
+html += templates[componentId].template;
+});
+store.pageComponents = [...new Set(store.pageComponents)];
+document.body.innerHTML += html;
+}
+```
 
+However, be aware that using `innerHTML +=` can cause issues if you have event listeners attached to elements within the body, as it will recreate all the elements and remove any existing event listeners.
 
+Alternatively, you can create a container element and append it to the body:
 
+```
+export const baseDiv = document.createElement('div');
+baseDiv.id = 'body';
+document.body.appendChild(baseDiv);
 
+export function renderComponents() {
+let html = '';
+Object.keys(templates).forEach((componentId) => {
+store.pageComponents.push(componentId);
+html += templates[componentId].template;
+});
+store.pageComponents = [...new Set(store.pageComponents)];
+baseDiv.innerHTML = html;
+}
+```
 
+Or append the HTML directly to the body using `insertAdjacentHTML`:
 
+```
+export function renderComponents() {
+let html = '';
+Object.keys(templates).forEach((componentId) => {
+store.pageComponents.push(componentId);
+html += templates[componentId].template;
+});
+store.pageComponents = [...new Set(store.pageComponents)];
+document.body.insertAdjacentHTML('beforeend', html);
+}
+```
 
-
-
-  <link rel="stylesheet" href="css/vendors.min.css" />
-  <link rel="stylesheet" href="css/icon.min.css" />
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/responsive.css" />
-  <link rel="stylesheet" href="demos/minimal-portfolio/ex_styles.css" />
-
+This way, you can add HTML to the body without overwriting existing content.
 
 
 

@@ -4,15 +4,13 @@ import { footer } from "../../assets/templates/layout/footer.js";
 import { header } from "../../assets/templates/layout/header.js";
 
 let templates = {
-  pageLoader: {
-    template: pageLoader
-  },
-  footer: {
-    template: footer
-  },
+  
   header: {
     template: header
   },
+  footer: {
+    template: footer
+  }
 };
 
 export function addTemplate(templateId, templateHtml) {

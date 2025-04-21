@@ -4,9 +4,16 @@ export function loadJS(file, baseUrl = "") {
     const script = document.createElement("script");
     script.src = resolvedUrl; // Use the resolved URL
     script.type = "text/javascript";
-    script.async = true;
+    script.async = false;
     script.onload = () => resolve(`JS file loaded: ${resolvedUrl}`);
     script.onerror = () => reject(new Error(`Failed to load JS file: ${resolvedUrl}`));
     document.body.appendChild(script);
   });
 }
+
+
+
+
+
+
+

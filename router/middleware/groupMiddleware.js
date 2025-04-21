@@ -23,12 +23,25 @@ export async function groupMiddleware(ctx, next) {
   const groupJsFiles = groupConfig.jsFiles || [];
   
   if (groupCssFiles.length > 0) {
-    groupCssFiles.forEach((file) => loadCSS(file, store.BASE_URL));
-    store.cssFiles.push(...groupCssFiles);
+    try {
+      for (const file of groupCssFiles) {
+        await loadCSS(file, store.BASE_URL);
+      }
+      store.cssFiles.push(...groupCssFiles);
+    } catch (error) {
+      console.error('Error loading CSS files:', error);
+    }
   }
+  
   if (groupJsFiles.length > 0) {
-    groupJsFiles.forEach((file) => loadJS(file, store.BASE_URL));
-    store.jsFiles.push(...groupJsFiles);
+    try {
+      for (const file of groupJsFiles) {
+        await loadJS(file, store.BASE_URL);
+      }
+      store.jsFiles.push(...groupJsFiles);
+    } catch (error) {
+      console.error('Error loading JS files:', error);
+    }
   }
   
   
