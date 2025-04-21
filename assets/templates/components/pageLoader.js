@@ -1,3 +1,5 @@
+
+
 export const pageLoader = `
 <div class="template-loader">
   <div class="loaderCenter">
@@ -11,3 +13,4 @@ export const pageLoader = `
   </div>
 </div>
 `;
+

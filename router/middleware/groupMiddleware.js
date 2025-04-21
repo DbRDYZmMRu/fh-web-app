@@ -17,19 +17,26 @@ export async function groupMiddleware(ctx, next) {
   const groupConfig = envConfig.routeGroups[routeConfig.group];
   if (!groupConfig) return next();
   
+  
   // Unload all previously loaded resources
   unloadAllResources();
+  
+  
   
   // Load shared group assets (CSS and JS)
   const groupCssFiles = groupConfig.cssFiles || [];
   const groupJsFiles = groupConfig.jsFiles || [];
   
-  if (groupCssFiles.length > 0) {
+  
+  console.log("groupCssFiles", groupCssFiles);
+  
+  if (groupCssFiles.length > 0 && groupCssFiles != store.cssFiles) {
     try {
       for (const file of groupCssFiles) {
         await loadCSS(file, store.BASE_URL);
       }
       store.cssFiles.push(...groupCssFiles);
+      
     } catch (error) {
       console.error('Error loading CSS files:', error);
     }
@@ -37,16 +44,24 @@ export async function groupMiddleware(ctx, next) {
   
   renderComponents();
   
-  if (groupJsFiles.length > 0) {
+
+  
+  
+  if (groupJsFiles.length > 0 && groupJsFiles != store.jsFiles && store.myCount == 0) {
     try {
       for (const file of groupJsFiles) {
         await loadJS(file, store.BASE_URL);
       }
       store.jsFiles.push(...groupJsFiles);
+      store.myCount += 1;
+      
     } catch (error) {
       console.error('Error loading JS files:', error);
     }
   }
+  
+  console.log("store cssFiles", store.cssFiles);
+  console.log(store);
   
   console.log(`Group resources loaded for group: ${routeConfig.group}`);
   

@@ -5,6 +5,7 @@ const config = reactive({
   cssFiles: [],
   jsFiles: [],
   pageComponents: [],
+  myCount: 0,
   IPAccess: false,
   workPlan: "is to get more modules",
   initialCountNo: 10,

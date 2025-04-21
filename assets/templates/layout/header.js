@@ -1,3 +1,5 @@
+import { store } from "../../../global.js";
+
 export const header = `
   <!-- start header -->
   <header class="left-modern-header" id="navbar-menu">
@@ -31,11 +33,11 @@ export const header = `
       <div class="h-100">
         <div class="modern-side-menu" data-scroll-options='{ "theme": "light" }'>
           <ul class="menu-item-list alt-font fw-600 ls-minus-1px">
-            <li class="menu-item" @click="path('/upcoming')">
-              <a href="#" class="nav-link">Home</a>
+            <li class="menu-item" @click="store.path('/upcoming')">
+              <span class="nav-link">Home</span>
             </li>
             <li class="menu-item">
-              <a href="demo-minimal-portfolio-about.html" class="nav-link">About</a>
+              <a href="/upcoming" class="nav-link">About</a>
             </li>
             <li class="menu-item">
               <a href="demo-minimal-portfolio-expertise.html" class="nav-link">Expertise</a>

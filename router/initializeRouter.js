@@ -3,7 +3,8 @@ import { groupMiddleware } from "./middleware/groupMiddleware.js";
 import { dynamicMiddleware } from "./middleware/dynamicMiddleware.js";
 import { store } from "../global.js";
 import { templates, addTemplate } from '../runtime/app/templates.js';
-import { renderComponents } from "../runtime/app/baseDiv.js";
+
+
 
 /**
  * Initializes the router with middleware.
