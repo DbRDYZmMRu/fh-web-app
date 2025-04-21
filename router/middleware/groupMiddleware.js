@@ -1,7 +1,8 @@
 import { loadCSS, loadJS } from "../../runtime/assets/index.js";
 import { unloadAllResources, fetchTemplate } from "./resourceManager.js";
 import { store } from "../../global.js";
-import { renderComponents } from "../../runtime/app/baseDiv.js";
+import { renderComponents } from "../../runtime/app/renderTemplate.js";
+import { pageLoader } from "../../../assets/templates/components/pageLoader.js";
 
 /**
  * Middleware to handle group-level resources and templates.
@@ -20,8 +21,6 @@ export async function groupMiddleware(ctx, next) {
   
   // Unload all previously loaded resources
   unloadAllResources();
-  
-  
   
   // Load shared group assets (CSS and JS)
   const groupCssFiles = groupConfig.cssFiles || [];
@@ -48,7 +47,7 @@ export async function groupMiddleware(ctx, next) {
   
   
   
-
+  
   
   
   if (groupJsFiles.length > 0 && groupJsFiles != store.jsFiles && store.myCount == 0) {

@@ -1,5 +1,5 @@
 import { store } from "../../store/index.js";
-import { renderComponents } from "./baseDiv.js";
+
 import { initializeRouter } from "../../router/initializeRouter.js";
 
 // Function to initialize the app's global state

@@ -1,6 +1,7 @@
 import page from "../lib/page.mjs.js";
 import { groupMiddleware } from "./middleware/groupMiddleware.js";
 import { dynamicMiddleware } from "./middleware/dynamicMiddleware.js";
+import { loadData } from "./middleware/loadData.js";
 import { store } from "../global.js";
 import { templates, addTemplate } from '../runtime/app/templates.js';
 
@@ -17,7 +18,7 @@ export function initializeRouter() {
     console.log("Navigated to Home");
   });
   
-  page("/home", groupMiddleware, dynamicMiddleware, () => {
+  page("/home", loadData, groupMiddleware, dynamicMiddleware, () => {
     console.log("Navigated to Home");
   });
   
@@ -25,7 +26,7 @@ export function initializeRouter() {
     console.log("Navigated to Reader");
   });
   
-  page("/upcoming", groupMiddleware, dynamicMiddleware, () => {
+  page("/upcoming", loadData, groupMiddleware, dynamicMiddleware, () => {
     console.log("Navigated to Upcoming Events");
   });
   
@@ -44,6 +45,7 @@ export function initializeRouter() {
   
   // Add a navigate function to the store for programmatic routing
   store.path = (path) => {
+    
     page(path);
   };
   
