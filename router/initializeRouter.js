@@ -10,16 +10,6 @@ import { renderComponents } from "../runtime/app/baseDiv.js";
  */
 export function initializeRouter() {
   page("/", groupMiddleware, dynamicMiddleware, () => {
-    const templateId = "upcoming-section";
-    const templateHtml = `    <h2>Dynamic HTML Block</h2>
-    <p>This is a paragraph of text.</p>
-    <ul>
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
-    </ul>
-`;
-    addTemplate(templateId, templateHtml);
     renderComponents();
     
     console.log("Navigated to Home");

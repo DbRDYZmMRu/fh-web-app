@@ -1,14 +1,17 @@
-
 import { store } from "../../global.js";
+import { pageLoader } from "../../assets/templates/components/page-loader.js";
+import { footer } from "../../assets/templates/layout/footer.js";
+import { header } from "../../assets/templates/layout/header.js";
+
 let templates = {
-  body: {
-    template: `<p id="innerBody">New HTML content at ${store.route} </p>`,
+  pageLoader: {
+    template: pageLoader
   },
-  innerBody: {
-    template: `<span>Inner body content</span>`,
+  footer: {
+    template: footer
   },
-  newItem: {
-    template: `<p>New item added</p>`,
+  header: {
+    template: header
   },
 };
 
