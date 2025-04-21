@@ -1,11 +1,13 @@
 export const pageLoader = `
-  <!-- start page loader -->
-  <div class="page-loader"></div>
-  <!-- end page loader -->
-  <!-- start cursor -->
-  <div class="cursor-page-inner">
-    <div class="circle-cursor circle-cursor-inner"></div>
-    <div class="circle-cursor circle-cursor-outer"></div>
+<div class="template-loader">
+  <div class="loaderCenter">
+    <div class="book-loader">
+      <div class="book">
+        <div class="page"></div>
+        <div class="page"></div>
+        <div class="page"></div>
+      </div>
+    </div>
   </div>
-  <!-- end cursor -->
+</div>
 `;
