@@ -2230,7 +2230,7 @@
       setTimeout(() => {
         loader.css('display', 'none'); // Hide the loader
         // or loader.hide();
-      }, 7000); // 3000ms = 3s delay
+      }, 3000); // 3000ms = 3s delay
     }
   }, 100); // check every 100ms
   
