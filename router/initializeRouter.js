@@ -3,13 +3,25 @@ import { groupMiddleware } from "./middleware/groupMiddleware.js";
 import { dynamicMiddleware } from "./middleware/dynamicMiddleware.js";
 import { store } from "../global.js";
 import { templates, addTemplate } from '../runtime/app/templates.js';
-import {renderComponents} from "../runtime/app/baseDiv.js";
+import { renderComponents } from "../runtime/app/baseDiv.js";
 
 /**
  * Initializes the router with middleware.
  */
 export function initializeRouter() {
   page("/", groupMiddleware, dynamicMiddleware, () => {
+    const templateId = "upcoming-section";
+    const templateHtml = `    <h2>Dynamic HTML Block</h2>
+    <p>This is a paragraph of text.</p>
+    <ul>
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+`;
+    addTemplate(templateId, templateHtml);
+    renderComponents();
+    
     console.log("Navigated to Home");
   });
   
@@ -22,19 +34,7 @@ export function initializeRouter() {
   });
   
   page("/upcoming", groupMiddleware, dynamicMiddleware, () => {
-    const templateId = "upcoming-section";
-    const templateHtml = `    <h2>Dynamic HTML Block</h2>
-    <p>This is a paragraph of text.</p>
-    <ul>
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
-    </ul>
-`;
-    addTemplate(templateId, templateHtml);
-    renderComponents();
-      
-        console.log("Navigated to Upcoming Events");
+    console.log("Navigated to Upcoming Events");
   });
   
   page("/musicpool", groupMiddleware, dynamicMiddleware, () => {
