@@ -1,0 +1,1 @@
+export const routerView = `<div id="routerView"></div>`;

@@ -1,6 +1,3 @@
-
-
-
 // Create the base div
 export const baseDiv = document.createElement('div');
 baseDiv.id = 'body';

@@ -3,7 +3,7 @@ export function loadData(ctx, next) {
   if (store.myCount == 1) {
     document.body.style.display = 'none';
     const loader = document.querySelector('.template-loader');
-    if (loader) {
+    if (true) {
       setTimeout(() => {
         // Hide the body
         document.body.style.display = '';
