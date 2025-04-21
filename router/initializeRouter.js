@@ -10,6 +10,7 @@ import { renderComponents } from "../runtime/app/baseDiv.js";
  */
 export function initializeRouter() {
   page("/", groupMiddleware, dynamicMiddleware, () => {
+    // Initial render
     
     
     console.log("Navigated to Home");

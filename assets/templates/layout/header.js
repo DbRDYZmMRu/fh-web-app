@@ -31,8 +31,8 @@ export const header = `
       <div class="h-100">
         <div class="modern-side-menu" data-scroll-options='{ "theme": "light" }'>
           <ul class="menu-item-list alt-font fw-600 ls-minus-1px">
-            <li class="menu-item">
-              <a href="demo-minimal-portfolio.html" class="nav-link">Home</a>
+            <li class="menu-item" @click="path('/upcoming')">
+              <a href="#" class="nav-link">Home</a>
             </li>
             <li class="menu-item">
               <a href="demo-minimal-portfolio-about.html" class="nav-link">About</a>

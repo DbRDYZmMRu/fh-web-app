@@ -16,5 +16,5 @@ export function renderComponents() {
   baseDiv.innerHTML = html;
 }
 
-// Initial render
+
 renderComponents();

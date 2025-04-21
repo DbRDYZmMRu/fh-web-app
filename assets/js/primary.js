@@ -2222,15 +2222,17 @@
    Page loader
    ====================================== */
   
-  $(window).on("load", function() {
-    var _lorder = $('.template-loader');
-    
-    if (_lorder.length > 0) {
-      setTimeout(function() {
-        _lorder.fadeOut(100);
-      }, 3000); // 3000ms = 3s delay
+  const intervalId = setInterval(() => {
+    const loader = $('.template-loader');
+    if (loader.length > 0) {
+      clearInterval(intervalId);
+      loader.show(); // Show the loader
+      setTimeout(() => {
+        loader.css('display', 'none'); // Hide the loader
+        // or loader.hide();
+      }, 7000); // 3000ms = 3s delay
     }
-  });
+  }, 100); // check every 100ms
   
   /* ===================================
    Window resize
