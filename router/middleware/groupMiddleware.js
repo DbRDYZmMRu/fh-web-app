@@ -1,11 +1,13 @@
 import { loadCSS, loadJS } from "../../runtime/assets/index.js";
 import { unloadAllResources, fetchTemplate } from "./resourceManager.js";
 import { store } from "../../global.js";
+import { renderComponents } from "../../runtime/app/baseDiv.js";
 
 /**
  * Middleware to handle group-level resources and templates.
  */
 export async function groupMiddleware(ctx, next) {
+  
   const envConfig = await fetchEnvConfig();
   if (!envConfig) return next();
   
@@ -33,6 +35,8 @@ export async function groupMiddleware(ctx, next) {
     }
   }
   
+  renderComponents();
+  
   if (groupJsFiles.length > 0) {
     try {
       for (const file of groupJsFiles) {
@@ -44,8 +48,11 @@ export async function groupMiddleware(ctx, next) {
     }
   }
   
-  
   console.log(`Group resources loaded for group: ${routeConfig.group}`);
+  
+  
+  
+  
   next();
 }
 
