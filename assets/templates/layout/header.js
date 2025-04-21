@@ -33,8 +33,8 @@ export const header = `
       <div class="h-100">
         <div class="modern-side-menu" data-scroll-options='{ "theme": "light" }'>
           <ul class="menu-item-list alt-font fw-600 ls-minus-1px">
-            <li class="menu-item" @click="store.path('/upcoming')">
-              <span class="nav-link">Home</span>
+            <li class="menu-item">
+              <a href="/" class="nav-link">Home</a>
             </li>
             <li class="menu-item">
               <a href="/upcoming" class="nav-link">About</a>
