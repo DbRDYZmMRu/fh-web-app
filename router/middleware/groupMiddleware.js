@@ -42,7 +42,11 @@ export async function groupMiddleware(ctx, next) {
     }
   }
   
-  renderComponents();
+  if (store.myCount == 0) {
+    renderComponents();
+  }
+  
+  
   
 
   
