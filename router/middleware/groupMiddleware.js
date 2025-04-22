@@ -3,6 +3,18 @@ import { unloadAllResources, fetchTemplate } from "./resourceManager.js";
 import { store } from "../../global.js";
 import { renderComponents } from "../../runtime/app/renderTemplate.js";
 import { pageLoader } from "../../../assets/templates/components/pageLoader.js";
+import { routePageLoader } from '../../runtime/app/routePageLoader.js';
+
+
+
+
+
+
+import { albumsPageID, albumsPage } from "../../../assets/templates/route/albumsPage.js";
+
+
+
+
 
 /**
  * Middleware to handle group-level resources and templates.
@@ -45,7 +57,7 @@ export async function groupMiddleware(ctx, next) {
     renderComponents();
   }
   
-  
+  routePageLoader(albumsPageID, albumsPage);
   
   
   

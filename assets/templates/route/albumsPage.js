@@ -1,9 +1,14 @@
+import { store } from "../../../global.js";
+
+
+
+
 export const albumsPage = `
   <!-- start section -->
   <section class="d-flex align-items-center p-0 full-screen overflow-hidden">
     <div class="sticky-image-distortion-wrapper">
       <nav class="menu fw-600">
-        <div class="menu__link active" data-img="./cover.jpg" data-bg="#e1dedb">
+        <div class="menu__link active" :data-img="store.resources['albumsPage']['images']['albumCover2']" data-bg="#e1dedb">
           <div class="sticky-image-title">
             <a href="#" class="fs-90 lg-fs-65 md-fs-50 ls-minus-4px md-ls-0px text-dark-gray-hover">Collection I</a>
             <div class="sticky-category">

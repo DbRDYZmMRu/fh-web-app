@@ -3,10 +3,9 @@ import { groupMiddleware } from "./middleware/groupMiddleware.js";
 import { dynamicMiddleware } from "./middleware/dynamicMiddleware.js";
 import { loadData } from "./middleware/loadData.js";
 import { store } from "../global.js";
-import { routePageLoader } from '../runtime/app/routePageLoader.js';
 
 
-import { albumsPageID, albumsPage } from "../assets/templates/route/albumsPage.js"
+
 
 
 
@@ -22,7 +21,7 @@ export function initializeRouter() {
   });
   
   page("/home", loadData, groupMiddleware, dynamicMiddleware, () => {
-    routePageLoader();
+    
     console.log("Navigated to Home");
   });
   
@@ -31,7 +30,6 @@ export function initializeRouter() {
   });
   
   page("/upcoming", loadData, groupMiddleware, dynamicMiddleware, () => {
-    routePageLoader(albumsPageID, albumsPage);
     console.log("Navigated to Upcoming Events");
   });
   
