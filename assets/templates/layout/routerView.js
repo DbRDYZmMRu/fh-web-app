@@ -1,1 +1,1 @@
-export const routerView = `<div id="routerView"></div>`;
+export const routerView = `<div id="routerView" class="box-layout" ></div>`;
