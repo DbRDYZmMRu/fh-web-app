@@ -1,62 +1,63 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Music & Poetry App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Poetry Analysis</title>
 </head>
 
-<body v-scope="store">
+<body>
+  <h1>Poetry Analysis</h1>
+  <textarea id="poem-text" placeholder="Enter your poem here"></textarea>
+  <button id="analyze-button">Analyze Poem</button>
+  <div id="keyword-result"></div>
+  <div id="category-result"></div>
   
-  <header>
-    <h1>Music & Poetry App</h1>
-    <nav>
-      <button @click="path('/')">Home</button>
-      <button @click="path('/music')">Music</button>
-      <button @click="path('/poetry')">Poetry</button>
-      <button @click="path('/books')">Books</button>
-      <button @click="path('/login')">Login</button>
-    </nav>
-  </header>
-  <main>
-    <div v-if="store.route === 'home'">
-      <h2>Welcome to the Home Page</h2>
-    </div>
-    <div v-if="store.route === 'music'">
-      <h2>Music Section</h2>
-    </div>
-    <div v-if="store.route === 'poetry'">
-      <h2>Poetry Section</h2>
-    </div>
-    <div v-if="store.route === 'books'">
-      <h2>Books Section</h2>
-    </div>
-    <div v-if="store.route === 'login'">
-      <h2>Login Page</h2>
-    </div>
-  </main>
-  
-  <p>{{store.someValue}} is okay</p>
-  <p>{{store}} is okay</p>
-  <input v-model="store.someValue" type="text" name="" id="" value="" />
-  
-  <p @click="store.getDate()">click here</p>
-  
-  
-  
-  <p>Main App: IP Access is {{ store.IPAccess ? 'Enabled' : 'Disabled' }}</p>
-  <p>{{ store.workPlan }}</p>
-  <p v-if="store.initialCountNo === 10">{{ store.initialCountNo }}</p>
-  <button @click="store.toggleIPAccess()">Toggle IP Access</button>
-  <div v-scope="Counter({ initialCount: initialCountNo })"></div>
-  
-  <script type="module" src="./pageModel.js"></script>
-  
-  <template id="counter-template">
-    My count is {{ count }}
-    <button @click="inc">++</button>
-  </template>
+<script src="
+https://cdn.jsdelivr.net/npm/natural@8.0.1/lib/natural/index.min.js
+"></script>
+  <script>
+    const tokenizer = new natural.WordTokenizer();
+    const stopWords = natural.stopwords;
+    
+    document.getElementById('analyze-button').addEventListener('click', () => {
+      const poemText = document.getElementById('poem-text').value;
+      const tokens = tokenizer.tokenize(poemText);
+      const filteredTokens = tokens.filter(token => !stopWords.includes(token.toLowerCase()));
+      
+      // Extract keywords
+      const keywords = filteredTokens.filter((token, index, self) => self.indexOf(token) === index);
+      console.log('Keywords:', keywords);
+      
+      // Categorize the poem
+      const categories = categorizePoem(poemText);
+      console.log('Categories:', categories);
+      
+      // Display the results
+      displayResults(keywords, categories);
+    });
+    
+    // Categorize the poem based on keywords
+    function categorizePoem(poemText) {
+      const categories = [];
+      const keywords = ['love', 'nature', 'inspiration', 'life'];
+      keywords.forEach(keyword => {
+        if (poemText.toLowerCase().includes(keyword)) {
+          categories.push(keyword);
+        }
+      });
+      return categories;
+    }
+    
+    // Display the results
+    function displayResults(keywords, categories) {
+      const keywordList = keywords.join(', ');
+      const categoryList = categories.join(', ');
+      document.getElementById('keyword-result').innerHTML = `Keywords: ${keywordList}`;
+      document.getElementById('category-result').innerHTML = `Categories: ${categoryList}`;
+    }
+  </script>
 </body>
 
 </html>

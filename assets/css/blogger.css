@@ -2,8 +2,8 @@
     Crafto - Blogger
 ====================================== */
 /* font */
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Rufina:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
 /* variable */
 :root {     
     --base-color: #B78057;
@@ -11,8 +11,8 @@
     --medium-gray: #85827e;
     --light-medium-gray:#7C7C7C;
     --very-light-gray: #F7F2EF;
-    --alt-font: 'Rufina', serif;
-    --primary-font: 'Manrope', sans-serif;
+    --alt-font: 'Architects Daughter', cursive;
+    --primary-font: 'Architects Daughter', cursive;
 }
 /* body */
 html {  
