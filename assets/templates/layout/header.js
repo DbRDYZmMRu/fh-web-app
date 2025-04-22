@@ -38,7 +38,7 @@ export const header = `
               <span class="nav-link">Home</span>
             </li>
             <li @click="store.path('/upcoming')" class="menu-item">
-              <span class="nav-link">Upcoming {{store.myCount}}</span>
+              <span class="nav-link">Upcoming {{store.renderCount}}</span>
             </li>
             <li class="menu-item">
               <a href="demo-minimal-portfolio-expertise.html" class="nav-link">Expertise</a>

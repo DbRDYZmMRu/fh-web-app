@@ -1,6 +1,6 @@
 import { store } from "../../global.js";
 export function loadData(ctx, next) {
-  if (store.myCount == 1) {
+  if (store.renderCount == 1) {
     document.body.style.display = 'none';
     const loader = document.querySelector('.template-loader');
     if (true) {

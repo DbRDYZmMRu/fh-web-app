@@ -40,10 +40,11 @@ export async function groupMiddleware(ctx, next) {
   const groupCssFiles = groupConfig.cssFiles || [];
   const groupJsFiles = groupConfig.jsFiles || [];
   
+  // Load route-specific assets
+  const routeCssFiles = routeConfig.cssFiles || [];
+  const routeJsFiles = routeConfig.jsFiles || [];
   
-  console.log("groupCssFiles", groupCssFiles);
-  
-  if (groupCssFiles.length > 0 && groupCssFiles != store.cssFiles) {
+  if (groupCssFiles.length > 0) {
     try {
       for (const file of groupCssFiles) {
         await loadCSS(file, store.BASE_URL);
@@ -51,39 +52,41 @@ export async function groupMiddleware(ctx, next) {
       store.cssFiles.push(...groupCssFiles);
       
     } catch (error) {
-      console.error('Error loading CSS files:', error);
+      console.error('Error loading group CSS files:', error);
     }
   }
   
-  if (store.myCount == 0) {
+  if (routeCssFiles.length > 0) {
+    routeCssFiles.forEach((file) => loadCSS(file, store.BASE_URL));
+    store.cssFiles.push(...routeCssFiles);
+  }
+  
+  if (store.renderCount == 0) {
     renderComponents();
   }
   
+  //Load the router path content just before the JS is loaded
   routePageData();
   
-  
-  
-  
-  if (groupJsFiles.length > 0 && groupJsFiles != store.jsFiles && store.myCount == 0) {
+  if (groupJsFiles.length > 0 && store.renderCount == 0) {
     try {
       for (const file of groupJsFiles) {
         await loadJS(file, store.BASE_URL);
       }
       store.jsFiles.push(...groupJsFiles);
-      store.myCount += 1;
+      store.renderCount += 1;
       
     } catch (error) {
       console.error('Error loading JS files:', error);
     }
   }
   
-  console.log("store cssFiles", store.cssFiles);
-  console.log(store);
+  if (routeJsFiles.length > 0 && store.renderCount == 0) {
+    routeJsFiles.forEach((file) => loadJS(file, store.BASE_URL));
+    store.jsFiles.push(...routeJsFiles);
+  }
   
-  console.log(`Group resources loaded for group: ${routeConfig.group}`);
-  
-  
-  
+  console.log(`Group and Route-specific resources loaded: ${routeConfig.group} and path ${ctx.pathname} `);
   
   next();
 }

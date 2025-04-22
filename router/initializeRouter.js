@@ -1,6 +1,5 @@
 import page from "../lib/page.mjs.js";
 import { groupMiddleware } from "./middleware/groupMiddleware.js";
-import { dynamicMiddleware } from "./middleware/dynamicMiddleware.js";
 import { loadData } from "./middleware/loadData.js";
 import { store } from "../global.js";
 
@@ -19,20 +18,20 @@ export function initializeRouter() {
     console.log("Navigated to Home");
   });
   
-  page("/home", groupMiddleware, dynamicMiddleware, () => {
+  page("/home", groupMiddleware, () => {
     
     console.log("Navigated to Home");
   });
   
-  page("/reader", groupMiddleware, dynamicMiddleware, () => {
+  page("/reader", groupMiddleware, () => {
     console.log("Navigated to Reader");
   });
   
-  page("/upcoming", loadData, groupMiddleware, dynamicMiddleware, () => {
+  page("/upcoming", loadData, groupMiddleware, () => {
     console.log("Navigated to Upcoming Events");
   });
   
-  page("/musicpool", groupMiddleware, dynamicMiddleware, () => {
+  page("/musicpool", groupMiddleware, () => {
     console.log("Navigated to Music Pool");
   });
   
