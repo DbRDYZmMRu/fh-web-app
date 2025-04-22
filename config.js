@@ -16,7 +16,28 @@ const config = reactive({
     console.log("clixked");
   },
   resources: {
+    index: {
+      path: '/home', 
+      view: {
+        primary: '../assets/templates/route/index.js',
+      }, 
+      images: {
+        albumCover1: 'assets/images/logo.png',
+        albumCover2: 'assets/images/albums/colourfullight.jpg',
+      },
+      media: {
+        song1: 'path/to/song-1.mp3',
+        song2: 'path/to/song-2.mp3',
+      },
+      json: {
+        albumData: 'path/to/album-data.json',
+      }
+    },
     albumsPage: {
+      path: '/albums', 
+      view: {
+        primary: 'assets/templates/route/albumsPage.js',
+      }, 
       images: {
         albumCover1: 'assets/images/logo.png',
         albumCover2: 'assets/images/albums/colourfullight.jpg',
@@ -30,14 +51,20 @@ const config = reactive({
       }
     },
     upcoming: {
+      path: '/upcoming', 
+      view: {
+        primary: 'assets/templates/route/albumsPage.js',
+      }, 
       images: {
-        upcomingAlbumCover: 'path/to/upcoming-album-cover.jpg',
+        albumCover1: 'assets/images/logo.png',
+        albumCover2: 'assets/images/albums/colourfullight.jpg',
       },
       media: {
-        upcomingSong: 'path/to/upcoming-song.mp3',
+        song1: 'path/to/song-1.mp3',
+        song2: 'path/to/song-2.mp3',
       },
       json: {
-        upcomingData: 'path/to/upcoming-data.json',
+        albumData: 'path/to/album-data.json',
       }
     }
   }

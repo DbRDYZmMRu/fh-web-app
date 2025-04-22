@@ -1,7 +1,7 @@
 import { store } from "../../../global.js";
 
 
-export const homeView = `
+export const index = `
             <!-- start section -->
             <section class="top-space-margin p-0">
                 <div class="container-fluid p-0">
@@ -728,4 +728,3 @@ export const homeView = `
 
 `;
 
-export const homeViewID = "homeView";

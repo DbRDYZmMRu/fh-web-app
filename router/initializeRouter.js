@@ -13,14 +13,13 @@ import { store } from "../global.js";
  * Initializes the router with middleware.
  */
 export function initializeRouter() {
-  page("/", groupMiddleware, dynamicMiddleware, () => {
-    // Initial render
-    
+  page("/", () => {
+    page.redirect("/home");
     
     console.log("Navigated to Home");
   });
   
-  page("/home", loadData, groupMiddleware, dynamicMiddleware, () => {
+  page("/home", groupMiddleware, dynamicMiddleware, () => {
     
     console.log("Navigated to Home");
   });

@@ -2,56 +2,71 @@
 
 
 
-Appending to the Body
-If you want to append the HTML directly to the body instead of the `baseDiv`, you can modify the `renderComponents` function like this:
+
+
+
+
+
+Dynamic Import and Method Call
+You can achieve this using dynamic imports and a function call. Here's an example:
 
 ```
-export function renderComponents() {
-let html = '';
-Object.keys(templates).forEach((componentId) => {
-store.pageComponents.push(componentId);
-html += templates[componentId].template;
-});
-store.pageComponents = [...new Set(store.pageComponents)];
-document.body.innerHTML += html;
+export async function routePageData() {
+const routeFilterData = routeFilter();
+const routeViewID = routeFilterData.resourceName;
+const routerViewData = routeFilterData.viewPrimary;
+
+const viewModule = await import(routerViewData);
+const viewData = viewModule[routeViewID];
+
+// Call a method with the view data and ID
+const result = processViewData(viewData, routeViewID);
+return result;
+}
+
+function processViewData(data, id) {
+// Process the view data here
+console.log(`Processing view data for ${id}`);
+// Return the result
+return data;
 }
 ```
 
-However, be aware that using `innerHTML +=` can cause issues if you have event listeners attached to elements within the body, as it will recreate all the elements and remove any existing event listeners.
+In this example, the `routePageData` function dynamically imports the module specified by `routerViewData` and retrieves the export with the name specified by `routeViewID`. It then calls the `processViewData` function with the retrieved data and ID.
 
-Alternatively, you can create a container element and append it to the body:
+Handling Errors
+You should also handle any potential errors that might occur during the dynamic import or function call:
 
 ```
-export const baseDiv = document.createElement('div');
-baseDiv.id = 'body';
-document.body.appendChild(baseDiv);
+export async function routePageData() {
+try {
+const routeFilterData = routeFilter();
+const routeViewID = routeFilterData.resourceName;
+const routerViewData = routeFilterData.viewPrimary;
 
-export function renderComponents() {
-let html = '';
-Object.keys(templates).forEach((componentId) => {
-store.pageComponents.push(componentId);
-html += templates[componentId].template;
-});
-store.pageComponents = [...new Set(store.pageComponents)];
-baseDiv.innerHTML = html;
+const viewModule = await import(routerViewData);
+const viewData = viewModule[routeViewID];
+
+const result = processViewData(viewData, routeViewID);
+return result;
+} catch (error) {
+console.error(`Error processing view data: ${error}`);
+}
 }
 ```
 
-Or append the HTML directly to the body using `insertAdjacentHTML`:
+This way, you can ensure that any errors are caught and handled properly.
 
-```
-export function renderComponents() {
-let html = '';
-Object.keys(templates).forEach((componentId) => {
-store.pageComponents.push(componentId);
-html += templates[componentId].template;
-});
-store.pageComponents = [...new Set(store.pageComponents)];
-document.body.insertAdjacentHTML('beforeend', html);
-}
-```
 
-This way, you can add HTML to the body without overwriting existing content.
+
+
+
+
+
+
+
+
+
 
 
 

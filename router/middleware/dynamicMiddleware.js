@@ -30,9 +30,6 @@ export async function dynamicMiddleware(ctx, next) {
     store.jsFiles.push(...routeJsFiles);
   }
   
-  store.route = ctx.pathname;
-  
-  
   
 
   

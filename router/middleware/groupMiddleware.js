@@ -5,7 +5,7 @@ import { renderComponents } from "../../runtime/app/renderTemplate.js";
 import { pageLoader } from "../../../assets/templates/components/pageLoader.js";
 import { routePageLoader } from '../../runtime/app/routePageLoader.js';
 
-
+import { routePageData } from "../routeFilter.js";
 
 
 
@@ -20,6 +20,8 @@ import { albumsPageID, albumsPage } from "../../../assets/templates/route/albums
  * Middleware to handle group-level resources and templates.
  */
 export async function groupMiddleware(ctx, next) {
+  
+  store.route = ctx.pathname;
   
   const envConfig = await fetchEnvConfig();
   if (!envConfig) return next();
@@ -57,7 +59,7 @@ export async function groupMiddleware(ctx, next) {
     renderComponents();
   }
   
-  routePageLoader(albumsPageID, albumsPage);
+  routePageData();
   
   
   
