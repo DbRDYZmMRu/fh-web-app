@@ -60,9 +60,9 @@ export async function baseMiddleware(ctx, next) {
   }
   
   if (store.renderCount == 0) {
-    renderComponents();
+    
   }
-  
+  renderComponents();
   //Load the router path content just before the JS is loaded
   routePageData();
   
@@ -79,7 +79,7 @@ export async function baseMiddleware(ctx, next) {
     }
   }
   
-  if (routeJsFiles.length > 0 && store.renderCount == 0) {
+  if (routeJsFiles.length > 0) {
     routeJsFiles.forEach((file) => loadJS(file, store.BASE_URL));
     store.jsFiles.push(...routeJsFiles);
   }
