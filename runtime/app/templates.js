@@ -1,3 +1,6 @@
+
+// This js file holds all of the default components that are loaded every time a route-path is visited. 
+
 import { store } from "../../global.js";
 
 import { pageLoader } from "../../assets/templates/components/pageLoader.js";
