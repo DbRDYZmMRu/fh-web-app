@@ -4,7 +4,7 @@ import { store } from "../global.js";
 /**
  * Middleware to load shared resources for a route group.
  */
-export async function groupMiddleware(ctx, next) {
+export async function baseMiddleware(ctx, next) {
   const envConfig = await fetchEnvConfig();
   if (!envConfig) return next(); // Proceed if `env.json` fails to load
   

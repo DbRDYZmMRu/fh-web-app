@@ -10,8 +10,6 @@ import { routePageData } from "../routeFilter.js";
 
 
 
-import { albumsPageID, albumsPage } from "../../../assets/templates/route/albumsPage.js";
-
 
 
 
@@ -19,7 +17,7 @@ import { albumsPageID, albumsPage } from "../../../assets/templates/route/albums
 /**
  * Middleware to handle group-level resources and templates.
  */
-export async function groupMiddleware(ctx, next) {
+export async function baseMiddleware(ctx, next) {
   
   store.route = ctx.pathname;
   
@@ -86,7 +84,7 @@ export async function groupMiddleware(ctx, next) {
     store.jsFiles.push(...routeJsFiles);
   }
   
-  console.log(`Group and Route-specific resources loaded: ${routeConfig.group} and path ${ctx.pathname} `);
+  
   
   next();
 }

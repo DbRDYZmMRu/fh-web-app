@@ -1,63 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Poetry Analysis</title>
-</head>
-
-<body>
-  <h1>Poetry Analysis</h1>
-  <textarea id="poem-text" placeholder="Enter your poem here"></textarea>
-  <button id="analyze-button">Analyze Poem</button>
-  <div id="keyword-result"></div>
-  <div id="category-result"></div>
-  
-<script src="
-https://cdn.jsdelivr.net/npm/natural@8.0.1/lib/natural/index.min.js
-"></script>
-  <script>
-    const tokenizer = new natural.WordTokenizer();
-    const stopWords = natural.stopwords;
-    
-    document.getElementById('analyze-button').addEventListener('click', () => {
-      const poemText = document.getElementById('poem-text').value;
-      const tokens = tokenizer.tokenize(poemText);
-      const filteredTokens = tokens.filter(token => !stopWords.includes(token.toLowerCase()));
-      
-      // Extract keywords
-      const keywords = filteredTokens.filter((token, index, self) => self.indexOf(token) === index);
-      console.log('Keywords:', keywords);
-      
-      // Categorize the poem
-      const categories = categorizePoem(poemText);
-      console.log('Categories:', categories);
-      
-      // Display the results
-      displayResults(keywords, categories);
-    });
-    
-    // Categorize the poem based on keywords
-    function categorizePoem(poemText) {
-      const categories = [];
-      const keywords = ['love', 'nature', 'inspiration', 'life'];
-      keywords.forEach(keyword => {
-        if (poemText.toLowerCase().includes(keyword)) {
-          categories.push(keyword);
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template Literal Tester</title>
+    <style>
+        #error-details {
+            color: red;
         }
-      });
-      return categories;
-    }
-    
-    // Display the results
-    function displayResults(keywords, categories) {
-      const keywordList = keywords.join(', ');
-      const categoryList = categories.join(', ');
-      document.getElementById('keyword-result').innerHTML = `Keywords: ${keywordList}`;
-      document.getElementById('category-result').innerHTML = `Categories: ${categoryList}`;
-    }
-  </script>
-</body>
+    </style>
+</head>
+<body>
+    <h1>Template Literal Tester</h1>
+    <textarea id="template-literal" rows="10" cols="50"></textarea>
+    <button id="test-btn">Test Template Literal</button>
+    <div id="result"></div>
+    <pre id="error-details"></pre>
 
+    <script>
+        const templateLiteralInput = document.getElementById('template-literal');
+        const testBtn = document.getElementById('test-btn');
+        const resultDiv = document.getElementById('result');
+        const errorDetails = document.getElementById('error-details');
+
+        testBtn.addEventListener('click', () => {
+            const templateLiteral = templateLiteralInput.value;
+            try {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(templateLiteral, 'text/html');
+                if (doc.querySelector('parsererror')) {
+                    const error = doc.querySelector('parsererror');
+                    resultDiv.innerText = 'Error parsing HTML.';
+                    errorDetails.innerText = error.textContent;
+                    const lines = templateLiteral.split('\n');
+                    for (let i = 0; i < lines.length; i++) {
+                        if (lines[i].includes('<') && !lines[i].includes('>')) {
+                            errorDetails.innerText += `\nPotential issue on line ${i + 1}: ${lines[i]}`;
+                        }
+                    }
+                } else {
+                    resultDiv.innerText = 'Template literal is valid HTML.';
+                    errorDetails.innerText = '';
+                }
+            } catch (error) {
+                resultDiv.innerText = 'Error parsing HTML.';
+                errorDetails.innerText = error.message;
+            }
+        });
+    </script>
+</body>
 </html>

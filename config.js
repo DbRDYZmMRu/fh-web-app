@@ -33,10 +33,10 @@ const config = reactive({
         albumData: 'path/to/album-data.json',
       }
     },
-    albumsPage: {
+    albums: {
       path: '/albums', 
       view: {
-        primary: 'assets/templates/route/albumsPage.js',
+        primary: '../assets/templates/route/albums.js',
       }, 
       images: {
         albumCover1: 'assets/images/logo.png',

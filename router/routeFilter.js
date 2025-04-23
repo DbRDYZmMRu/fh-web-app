@@ -18,14 +18,11 @@ export async function routePageData() {
   try {
     const routeFilterData = routeFilter();
     const routeViewID = routeFilterData.resourceName;
-    console.log(routeViewID);
     const routerViewData = routeFilterData.viewPrimary;
     
     const viewModule = await import(routerViewData);
     const viewData = viewModule[routeViewID];
-    const result = routePageLoader(routeViewID, viewData);
-console.log(result);
-return result;
+    routePageLoader(routeViewID, viewData);
   } catch (error) {
     console.error(`Error processing view data: ${error}`);
   }

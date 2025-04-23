@@ -6,11 +6,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
 /* variable */
 :root {     
-    --base-color: #B78057;
-    --dark-gray: #242321;
-    --medium-gray: #85827e;
-    --light-medium-gray:#7C7C7C;
-    --very-light-gray: #F7F2EF;
     --alt-font: 'Architects Daughter', cursive;
     --primary-font: 'Architects Daughter', cursive;
 }

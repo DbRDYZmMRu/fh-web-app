@@ -34,11 +34,11 @@ export const header = `
       <div class="h-100">
         <div class="modern-side-menu" data-scroll-options='{ "theme": "light" }'>
           <ul class="menu-item-list alt-font fw-600 ls-minus-1px">
-            <li @click="store.path('/home')" class="menu-item">
+            <li @click.prevent="store.path('/home')" class="menu-item">
               <span class="nav-link">Home</span>
             </li>
-            <li @click="store.path('/upcoming')" class="menu-item">
-              <span class="nav-link">Upcoming {{store.renderCount}}</span>
+            <li @click.prevent="store.path('/albums')" class="menu-item">
+              <span class="nav-link">Albums</span>
             </li>
             <li class="menu-item">
               <a href="demo-minimal-portfolio-expertise.html" class="nav-link">Expertise</a>

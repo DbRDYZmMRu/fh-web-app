@@ -1,8 +1,12 @@
 import { store } from "../../global.js";
+
 import { pageLoader } from "../../assets/templates/components/pageLoader.js";
+import { cookiesPrompt } from "../../assets/templates/components/cookiesPrompt.js";
+
 import { header } from "../../assets/templates/layout/header.js";
 import { routerView } from "../../assets/templates/layout/routerView.js";
 import { footer } from "../../assets/templates/layout/footer.js";
+
 
 
 let templates = {
@@ -17,7 +21,11 @@ let templates = {
   },
   footer: {
     template: footer
+  }, 
+  cookiesPrompt: {
+    template: cookiesPrompt
   } 
+  
 };
 
 export function addTemplate(templateId, templateHtml) {
