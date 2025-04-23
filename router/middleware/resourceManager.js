@@ -3,7 +3,7 @@
  */
 export function unloadAllResources() {
   document.querySelectorAll("link[rel='stylesheet']").forEach((link) => link.remove());
-  document.querySelectorAll("script").forEach((script) => script.remove());
+  // document.querySelectorAll("script").forEach((script) => script.remove());
 }
 
 export async function fetchTemplate(url) {
