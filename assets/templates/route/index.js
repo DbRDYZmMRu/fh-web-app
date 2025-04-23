@@ -3,6 +3,7 @@ import { store } from "../../../global.js";
 
 export const index = `
             <!-- start section -->
+            <div class="box-layout">
             <section class="top-space-margin p-0">
                 <div class="container-fluid p-0">
                     <div class="row g-0">
@@ -724,7 +725,7 @@ export const index = `
                 </div>
             </section> 
             <!-- end section -->
-
+            </div>
 
 `;
 
