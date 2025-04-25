@@ -3189,6 +3189,7 @@ input:focus, select:focus, textarea:focus, .form-control:focus {
 .bg-base-color {
   background-color: var(--base-color);
 }
+
 .bg-dark-gray,
 .bg-dark-gray:focus {
   background-color: var(--dark-gray);
@@ -19396,4 +19397,11 @@ footer ul li a:hover {
       all: unset !important;
       display: contents !important;
     }
+
+.footer-bg-color {
+  background-color: #000;
+}
+.footer-text-color {
+  color: #fff;
+}
 

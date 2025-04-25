@@ -36,10 +36,10 @@ const config = reactive({
         albumData: 'path/to/album-data.json',
       }
     },
-    albums: {
-      path: '/albums', 
+    musicpool: {
+      path: '/musicpool', 
       view: {
-        primary: '../assets/templates/route/albums.js',
+        primary: '../assets/templates/route/musicpool.js',
       }, 
       images: {
         albumCover1: 'assets/images/logo.png',
@@ -53,10 +53,44 @@ const config = reactive({
         albumData: 'path/to/album-data.json',
       }
     },
-    upcoming: {
-      path: '/upcoming', 
+    blog: {
+      path: '/blog', 
       view: {
-        primary: 'assets/templates/route/albumsPage.js',
+        primary: '../assets/templates/route/blog.js',
+      }, 
+      images: {
+        albumCover1: 'assets/images/logo.png',
+        albumCover2: 'assets/images/albums/colourfullight.jpg',
+      },
+      media: {
+        song1: 'path/to/song-1.mp3',
+        song2: 'path/to/song-2.mp3',
+      },
+      json: {
+        albumData: 'path/to/album-data.json',
+      }
+    }, 
+    discover: {
+      path: '/discover', 
+      view: {
+        primary: '../assets/templates/route/discover.js',
+      }, 
+      images: {
+        albumCover1: 'assets/images/logo.png',
+        albumCover2: 'assets/images/albums/colourfullight.jpg',
+      },
+      media: {
+        song1: 'path/to/song-1.mp3',
+        song2: 'path/to/song-2.mp3',
+      },
+      json: {
+        albumData: 'path/to/album-data.json',
+      }
+    }, 
+    cookies: {
+      path: '/cookies', 
+      view: {
+        primary: '../assets/templates/route/cookies.js',
       }, 
       images: {
         albumCover1: 'assets/images/logo.png',
@@ -70,6 +104,7 @@ const config = reactive({
         albumData: 'path/to/album-data.json',
       }
     }
+    
   }
 });
 

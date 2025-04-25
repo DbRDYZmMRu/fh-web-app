@@ -20,23 +20,25 @@ export function initializeRouter() {
     console.log("Navigated to home");
   });
   
-  page("/albums", baseMiddleware, () => {
-    console.log("Navigated to albums");
-  });
-  
-  
   page("/reader", baseMiddleware, () => {
-    console.log("Navigated to Reader");
-  });
-  
-  page("/upcoming", baseMiddleware, () => {
-    console.log("Navigated to Upcoming Events");
+    console.log("Navigated to reader");
   });
   
   page("/musicpool", baseMiddleware, () => {
-    console.log("Navigated to Music Pool");
+    console.log("Navigated to musicpool");
   });
   
+  page("/blog", baseMiddleware, () => {
+    console.log("Navigated to blog");
+  });
+
+  page("/discover", baseMiddleware, () => {
+    console.log("Navigated to discover");
+  });
+  
+  page("/cookies", baseMiddleware, () => {
+    console.log("Navigated to cookies");
+  });
   
   
   // Fallback for undefined routes

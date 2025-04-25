@@ -36,7 +36,7 @@ Thumbs.db
 
 # Ignore mp3 folder
 mp3/
-
+assets/images/
 # Ignore coverage output
 coverage/
 

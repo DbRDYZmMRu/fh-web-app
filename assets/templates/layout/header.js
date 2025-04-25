@@ -37,22 +37,30 @@ export const header = `
             <li @click.prevent="store.directPath('/home')" class="menu-item">
               <span class="nav-link">Home</span>
             </li>
-            <li @click.prevent="store.directPath('/albums')" class="menu-item">
-              <span class="nav-link">Albums</span>
+            <li @click.prevent="store.directPath('/reader')" class="menu-item">
+              <span class="nav-link">Book reader</span>
             </li>
-            <li class="menu-item">
-              <a href="demo-minimal-portfolio-expertise.html" class="nav-link">Expertise</a>
+            <li @click.prevent="store.directPath('/musicpool')" class="menu-item">
+              <span class="nav-link">Music pool</span>
             </li>
-            <li class="menu-item">
-              <a href="demo-minimal-portfolio-contact.html" class="nav-link">Contact</a>
+            <li @click.prevent="store.directPath('/blog')" class="menu-item">
+              <span class="nav-link">Blog</span>
+            </li>
+            <li @click.prevent="store.directPath('/discover')" class="menu-item">
+              <span class="nav-link">Discover</span>
+            </li>
+            <li @click.prevent="store.directPath('/cookies')" class="menu-item">
+              <span class="nav-link">Cookies</span>
             </li>
           </ul>
+          <!--
           <div class="mt-30">
             <span class="d-block lh-24 fs-15 w-95">Looking for collaboration for your next creative project?</span>
             <div class="mt-5px">
               <i class="bi bi-envelope me-5px align-middle"></i><a href="mailto:hello@domain.com" class="text-dark-gray-hover fw-600 align-middle">hello@domain.com</a>
             </div>
           </div>
+          --->
         </div>
       </div>
     </nav>
@@ -60,4 +68,3 @@ export const header = `
   <!-- end header -->
 
 `;
-

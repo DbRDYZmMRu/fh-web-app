@@ -1,1 +1,3 @@
-<p>Reader</p>
+export const reader = `
+<p>Musicpool</p>
+`;
