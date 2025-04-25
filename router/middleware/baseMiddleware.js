@@ -2,6 +2,7 @@ import { loadCSS, loadJS } from "../../runtime/assets/index.js";
 import { unloadAllResources, fetchTemplate } from "./resourceManager.js";
 import { store } from "../../global.js";
 import { renderComponents } from "../../runtime/app/renderTemplate.js";
+import { setupLoader } from "../../assets/js/helpers/loader.js";
 import { pageLoader } from "../../../assets/templates/components/pageLoader.js";
 import { routePageLoader } from '../../runtime/app/routePageLoader.js';
 
@@ -69,34 +70,11 @@ export async function baseMiddleware(ctx, next) {
   }
   
   
-  
   //Load the router path content just before the JS is loaded
   routePageData();
   
   // Now that the DOM is ready, add a loading animation 
-  const loader = document.querySelector('.template-loader');
-  loader.style.display = 'block'; // Show the loader
-  if (loader) {
-    setTimeout(() => {
-      // Show the body
-      document.body.style.display = '';
-    }, 1000); // 1000ms = 1s delay
-    
-    setTimeout(() => {
-      // Hide the loader
-      loader.style.display = 'none';
-    }, 4000); // 3000ms = 4s delay
-  }
-  
-  
-  // Close the navigation bar if it's open
-  const navbarCollapse = document.getElementById('navbar-menu');
-  
-  if (navbarCollapse.classList.contains('show')) {
-    const collapseInstance = bootstrap.Collapse.getInstance(navbarCollapse);
-    collapseInstance.hide();
-  }
-  
+  setupLoader();
   
   if (groupJsFiles.length > 0 && store.renderCount == 0) {
     try {
@@ -115,7 +93,6 @@ export async function baseMiddleware(ctx, next) {
     routeJsFiles.forEach((file) => loadJS(file, store.BASE_URL));
     store.jsFiles.push(...routeJsFiles);
   }
-  
   
   
   next();
