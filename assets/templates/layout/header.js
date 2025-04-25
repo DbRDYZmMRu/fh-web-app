@@ -34,10 +34,10 @@ export const header = `
       <div class="h-100">
         <div class="modern-side-menu" data-scroll-options='{ "theme": "light" }'>
           <ul class="menu-item-list alt-font fw-600 ls-minus-1px">
-            <li @click.prevent="store.path('/home')" class="menu-item">
+            <li @click.prevent="store.directPath('/home')" class="menu-item">
               <span class="nav-link">Home</span>
             </li>
-            <li @click.prevent="store.path('/albums')" class="menu-item">
+            <li @click.prevent="store.directPath('/albums')" class="menu-item">
               <span class="nav-link">Albums</span>
             </li>
             <li class="menu-item">

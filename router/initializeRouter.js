@@ -1,6 +1,6 @@
 import page from "../lib/page.mjs.js";
 import { baseMiddleware } from "./middleware/baseMiddleware.js";
-import { loadData } from "./middleware/loadData.js";
+import { routePrep } from "./middleware/loadData.js";
 import { store } from "../global.js";
 
 
@@ -12,17 +12,16 @@ import { store } from "../global.js";
  * Initializes the router with middleware.
  */
 export function initializeRouter() {
-  console.log("Navigated to Reader");
   page("/", () => {
     page.redirect("/home");
   });
   
   page("/home", baseMiddleware, () => {
-    
+    console.log("Navigated to home");
   });
   
   page("/albums", baseMiddleware, () => {
-    
+    console.log("Navigated to albums");
   });
   
   
@@ -30,7 +29,7 @@ export function initializeRouter() {
     console.log("Navigated to Reader");
   });
   
-  page("/upcoming", loadData, baseMiddleware, () => {
+  page("/upcoming", baseMiddleware, () => {
     console.log("Navigated to Upcoming Events");
   });
   

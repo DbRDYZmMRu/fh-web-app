@@ -25,3 +25,7 @@ export function loadData(ctx, next) {
   }
   next();
 }
+
+export function routePrep(ctx, next) {
+  //document.body.classList.add('left-modern-menu', 'custom-cursor');
+}

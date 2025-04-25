@@ -19,6 +19,10 @@ import { routePageData } from "../routeFilter.js";
  */
 export async function baseMiddleware(ctx, next) {
   
+  //Hide the page's content as the DOM loads
+  document.body.style.display = 'none';
+  
+  // Assign the store's route key the current path value
   store.route = ctx.pathname;
   
   const envConfig = await fetchEnvConfig();
@@ -59,12 +63,27 @@ export async function baseMiddleware(ctx, next) {
     store.cssFiles.push(...routeCssFiles);
   }
   
-  if (store.renderCount == 0) {
-    
-  }
+  // Render the layout components
   renderComponents();
+  
   //Load the router path content just before the JS is loaded
   routePageData();
+  
+  // Now that the DOM is ready, add a loading animation 
+  const loader = document.querySelector('.template-loader');
+  loader.style.display = 'block'; // Show the loader
+  if (loader) {
+    setTimeout(() => {
+      // Show the body
+      document.body.style.display = '';
+    }, 1000); // 1000ms = 1s delay
+    
+    setTimeout(() => {
+      // Hide the loader
+      loader.style.display = 'none';
+    }, 4000); // 3000ms = 4s delay
+  }
+  
   
   if (groupJsFiles.length > 0 && store.renderCount == 0) {
     try {
