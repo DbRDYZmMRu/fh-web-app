@@ -12,7 +12,7 @@ export function renderComponents() {
   });
   store.pageComponents = [...new Set(store.pageComponents)];
   baseDiv.innerHTML = html;
-  document.body.classList.add('left-modern-menu', 'custom-cursor');
+  //document.body.classList.add('left-modern-menu', 'custom-cursor');
   
   // Create a Petite-Vue app instance and mount it to the baseDiv
   createApp({

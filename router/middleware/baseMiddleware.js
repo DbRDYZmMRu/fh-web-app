@@ -63,8 +63,12 @@ export async function baseMiddleware(ctx, next) {
     store.cssFiles.push(...routeCssFiles);
   }
   
-  // Render the layout components
-  renderComponents();
+  if (store.renderCount == 0) {
+    // Render the layout components
+    renderComponents();
+  }
+  
+  
   
   //Load the router path content just before the JS is loaded
   routePageData();
@@ -85,6 +89,15 @@ export async function baseMiddleware(ctx, next) {
   }
   
   
+  // Close the navigation bar if it's open
+  const navbarCollapse = document.getElementById('navbar-menu');
+  
+  if (navbarCollapse.classList.contains('show')) {
+    const collapseInstance = bootstrap.Collapse.getInstance(navbarCollapse);
+    collapseInstance.hide();
+  }
+  
+  
   if (groupJsFiles.length > 0 && store.renderCount == 0) {
     try {
       for (const file of groupJsFiles) {
@@ -98,7 +111,7 @@ export async function baseMiddleware(ctx, next) {
     }
   }
   
-  if (routeJsFiles.length > 0) {
+  if (routeJsFiles.length > 0 && store.renderCount == 0) {
     routeJsFiles.forEach((file) => loadJS(file, store.BASE_URL));
     store.jsFiles.push(...routeJsFiles);
   }
