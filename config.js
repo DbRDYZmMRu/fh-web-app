@@ -36,6 +36,24 @@ const config = reactive({
         albumData: 'path/to/album-data.json',
       }
     },
+    reader: {
+      path: '/reader', 
+      view: {
+        primary: '../assets/templates/route/reader.js',
+      }, 
+      images: {
+        albumCover1: 'assets/images/logo.png',
+        albumCover2: 'assets/images/albums/colourfullight.jpg',
+      },
+      media: {
+        song1: 'path/to/song-1.mp3',
+        song2: 'path/to/song-2.mp3',
+      },
+      json: {
+        albumData: 'path/to/album-data.json',
+      }
+    },
+    
     musicpool: {
       path: '/musicpool', 
       view: {
