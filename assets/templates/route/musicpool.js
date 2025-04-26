@@ -1,16 +1,63 @@
-import { store } from "../../../global.js";
+import { store } from  "../../../global.js";
+
+
 
 
 export const musicpool = `
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6 text-center">
+      <p>This is a paragraph of text.</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6 text-center">
+      <p>This is a paragraph of text.</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6 text-center">
+      <p>This is a paragraph of text.</p>
+    </div>
+  </div>
+</div><div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6 text-center">
+      <p>This is a paragraph of text.</p>
+    </div>
+  </div>
+</div><div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6 text-center">
+      <p>This is a paragraph of text.</p>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6 text-center">
+      <p>{{store['resources']['musicpool']}}  .</p>
+      <input v-model="store['resources']['musicpool']['images']['albumCover2']" type="text" name="" id="" value="" />
+    </div>
+  </div>
+</div>
+
   <!-- start section -->
   <section class="d-flex align-items-center p-0 full-screen overflow-hidden">
     <div class="sticky-image-distortion-wrapper">
       <nav class="menu fw-600">
-        <div class="menu__link active" data-img="https://www.leondev.com.ng/assets/images/albums/colourfullight.jpg" data-bg="#e1dedb">
+      <img srcset="" src="${store['resources']['musicpool']['images']['albumCover2']}" alt="Missing image">
+        <div class="menu__link active" :data-img="${store['resources']['musicpool']['images']['albumCover2']}" data-bg="#e1dedb">
           <div class="sticky-image-title">
             <a href="#" class="fs-90 lg-fs-65 md-fs-50 ls-minus-4px md-ls-0px text-dark-gray-hover">Collection I</a>
             <div class="sticky-category">
-              <div class="category fs-16">Frith Hilton</div>
+              <div class="category fs-16">Frith Hilton </div>
             </div>
             <div class="title fs-180 xl-fs-160 lg-fs-140 md-fs-75 text-white ls-minus-8px">balenciaga</div>
           </div>

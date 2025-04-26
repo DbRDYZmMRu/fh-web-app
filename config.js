@@ -61,7 +61,7 @@ const config = reactive({
       }, 
       images: {
         albumCover1: 'assets/images/logo.png',
-        albumCover2: 'assets/images/albums/colourfullight.jpg',
+        albumCover2: '../../assets/images/albums/colourfullight.jpg',
       },
       media: {
         song1: 'path/to/song-1.mp3',
@@ -121,8 +121,24 @@ const config = reactive({
       json: {
         albumData: 'path/to/album-data.json',
       }
+    }, 
+    notFound: {
+      path: '/notFound', 
+      view: {
+        primary: '../assets/templates/route/notFound.js',
+      }, 
+      images: {
+        albumCover1: 'assets/images/logo.png',
+        albumCover2: 'assets/images/albums/colourfullight.jpg',
+      },
+      media: {
+        song1: 'path/to/song-1.mp3',
+        song2: 'path/to/song-2.mp3',
+      },
+      json: {
+        albumData: 'path/to/album-data.json',
+      }
     }
-    
   }
 });
 

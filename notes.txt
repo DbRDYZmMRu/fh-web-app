@@ -7,56 +7,42 @@
 
 
 
-Dynamic Import and Method Call
-You can achieve this using dynamic imports and a function call. Here's an example:
+Preventing Default Behavior with page.js
+To prevent clicks on `#` from loading or reloading the page when using page.js, you can use one of the following approaches:
+
+*1. Prevent Default Behavior*
+You can add an event listener to the link and prevent the default behavior:
 
 ```
-export async function routePageData() {
-const routeFilterData = routeFilter();
-const routeViewID = routeFilterData.resourceName;
-const routerViewData = routeFilterData.viewPrimary;
-
-const viewModule = await import(routerViewData);
-const viewData = viewModule[routeViewID];
-
-// Call a method with the view data and ID
-const result = processViewData(viewData, routeViewID);
-return result;
-}
-
-function processViewData(data, id) {
-// Process the view data here
-console.log(`Processing view data for ${id}`);
-// Return the result
-return data;
-}
+$(document).on('click', 'a[href="#"]', function(event) {
+event.preventDefault();
+});
 ```
 
-In this example, the `routePageData` function dynamically imports the module specified by `routerViewData` and retrieves the export with the name specified by `routeViewID`. It then calls the `processViewData` function with the retrieved data and ID.
-
-Handling Errors
-You should also handle any potential errors that might occur during the dynamic import or function call:
+*2. Use page.js's Built-in Mechanism*
+page.js provides a way to handle links with `#` by using the `click` event and calling `event.preventDefault()`:
 
 ```
-export async function routePageData() {
-try {
-const routeFilterData = routeFilter();
-const routeViewID = routeFilterData.resourceName;
-const routerViewData = routeFilterData.viewPrimary;
+page('/', function(ctx, next) {
+// Your route handler
+});
 
-const viewModule = await import(routerViewData);
-const viewData = viewModule[routeViewID];
-
-const result = processViewData(viewData, routeViewID);
-return result;
-} catch (error) {
-console.error(`Error processing view data: ${error}`);
+// Add this to prevent default behavior on links with #
+$(document).on('click', 'a', function(event) {
+if (this.hash && this.href === location.href + this.hash) {
+event.preventDefault();
 }
-}
+});
 ```
 
-This way, you can ensure that any errors are caught and handled properly.
+*3. Modify Links*
+If you have control over the HTML, you can modify the links to use `javascript:void(0)` instead of `#`:
 
+```
+<a href="javascript:void(0)">Link</a>
+```
+
+By using one of these approaches, you can prevent clicks on `#` from loading or reloading the page when using page.js.
 
 
 

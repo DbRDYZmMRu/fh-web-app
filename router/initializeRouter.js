@@ -12,7 +12,7 @@ import { store } from "../global.js";
  * Initializes the router with middleware.
  */
 export function initializeRouter() {
-  page("/", () => {
+  page("/index.html", () => {
     page.redirect("/home");
   });
   
@@ -25,13 +25,14 @@ export function initializeRouter() {
   });
   
   page("/musicpool", baseMiddleware, () => {
+    
     console.log("Navigated to musicpool");
   });
   
   page("/blog", baseMiddleware, () => {
     console.log("Navigated to blog");
   });
-
+  
   page("/discover", baseMiddleware, () => {
     console.log("Navigated to discover");
   });
@@ -40,11 +41,15 @@ export function initializeRouter() {
     console.log("Navigated to cookies");
   });
   
+  page("/notFound", baseMiddleware, () => {
+    console.log("Navigated to notFound");
+  });
+  
   
   // Fallback for undefined routes
   page("*", () => {
-    console.warn("Undefined route accessed. Redirecting to Home Page (/home)");
-    page.redirect("/home");
+    console.warn("Undefined route accessed. Redirecting to 404 Not Found Page (/notFound)");
+    page.redirect("/notFound");
   });
   
   // Start the router
