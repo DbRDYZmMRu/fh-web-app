@@ -24,6 +24,7 @@ export async function routePageData() {
     
     const viewModule = await import(routerViewData);
     const viewData = viewModule[routeViewID];
+    store.routeView = viewModule;
     routePageLoader(routeViewID, viewData);
   } catch (error) {
     console.error(`Error processing view data: ${error}`);

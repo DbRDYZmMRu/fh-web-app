@@ -21,7 +21,7 @@ import { routePageData } from "../routeFilter.js";
 export async function baseMiddleware(ctx, next) {
   
   //Hide the page's content as the DOM loads
-  document.body.style.display = 'none';
+  //document.body.style.display = 'none';
   
   // Assign the store's route key the current path value
   store.route = ctx.pathname;
