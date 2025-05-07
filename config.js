@@ -3,6 +3,7 @@ import { reactive } from "./lib/petite-vue.js";
 // Config Data to set the app's data and methods
 const config = reactive({
   BASE_URL: '/',
+  routeView: '', 
   route: "home",
   routeView: "null",
   cssFiles: [],
@@ -16,6 +17,7 @@ const config = reactive({
   doNothing() {
     console.log("clixked");
   },
+  
   
   // Page Resources like CSS and JS
   resources: {

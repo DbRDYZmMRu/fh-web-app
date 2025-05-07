@@ -1,21 +1,36 @@
 export const cookiesPrompt = `
-        <!-- start cookie message -->
-
-        <div id="cookies-model" class="cookie-message bg-dark-gray border-radius-8px"> 
-
-            <div class="cookie-description fs-14 text-white mb-20px lh-22">We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. By clicking "Allow cookies" you consent to our use of cookies. </div>   
-            <div class="cookie-btn">
-                <a href="#" class="btn btn-transparent-white border-1 border-color-transparent-white-light btn-very-small btn-switch-text btn-rounded w-100 mb-15px" aria-label="btn">
-                    <span>
-                        <span class="btn-double-text" data-text="Cookie policy">Cookie policy</span> 
-                    </span>
-                </a> 
-                <a href="#" class="btn btn-white btn-very-small btn-switch-text btn-box-shadow accept_cookies_btn btn-rounded w-100" data-accept-btn aria-label="text">
-                    <span>
-                        <span class="btn-double-text" data-text="Allow cookies">Allow cookies</span> 
-                    </span>
-                </a>
-            </div> 
+  <!--========== 
+    Start of  cookie modal notification section ==========-->
+  <div class="modal-subscribe">
+    <!-- Modal -->
+    <div class="modal fade" data-bs-backdrop="static" id="myModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog ">
+        <div class="modal-content">
+          <div class="modal-body p-0 bg-secondary rounded">
+            <div class="p-5 text-center">
+              <img class="img-fluid px-5" src="images/svg/cookie.svg" alt="">
+              <h3>Cookies</h3>
+              <p class="text-dark"><b>Hilton</b> uses cookies to
+                enhance user experience</p>
+              <a href="cookies.html" class="text-primary-gradient
+                    fw-bold">Our policy</a>
+              <div class="d-grid mt-5">
+                <button type="button" class="btn btn-white rounded" data-bs-dismiss="modal" @click="store.acceptCookieUse()">Accept</button>
+                <p class="text-dark mt-4">Coupled with
+                  <svg class="logo" viewBox="0 0 128 128" width="24" height="24" data-v-53ccc107="">
+                    <path fill="#42b883" d="M78.8,10L64,35.4L49.2,10H0l64,110l64-110C128,10,78.8,10,78.8,10z" data-v-53ccc107=""></path>
+                    <path fill="#35495e" d="M78.8,10L64,35.4L49.2,10H25.6L64,76l38.4-66H78.8z" data-v-53ccc107="">
+                    </path>
+                  </svg>
+                  <a href="https://github.com/vuejs/petite-vue" target="_blank" style="color: #42b883;"><b>petite-vue</b></a>
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-        <!-- end cookie message -->
+      </div>
+    </div>
+  </div>
+  <!--========== 
+          End of cookie modal notification section ==========-->
 `;

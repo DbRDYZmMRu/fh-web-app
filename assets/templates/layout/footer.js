@@ -1,49 +1,98 @@
-export const footer = `  <!-- start footer -->
-  <footer class="footer-bg-color footer-text-color footer-sticky background-position-left-top" style="background-image: url(images/demo-design-agency-vertical-line-footer-bg.svg)">
+export const footer = `
+
+    <a id="designer" href="https://www.hilton.com/en/p/for-the-stay/" target="_blank">
+    <img class="img-fluid" src="../../images/ads/Hilton.jpg" alt="Hilton For The Stay">
+  </a>
+    
+    <
+    section class = "py-5 bg-pink-gradient" >
     <div class="container">
-      <div class="row align-items-end mb-9">
-        <div class="col-lg-2 md-mb-15px text-center text-md-start">
-          <a href="demo-design-agency.html" class="footer-logo">
-            <img src="images/demo-design-agency-footer-logo-black.png" data-at2x="images/demo-design-agency-footer-logo-black@2x.png" alt="">
-          </a>
-        </div>
-        <div class="col-xl-4 col-lg-5 col-md-6 offset-lg-1 text-center text-md-start sm-mb-25px">
-          <span class="fw-600 text-decoration-line-bottom-medium fs-22  w-90 xl-w-95 sm-w-100 ls-minus-05px">Crafto is a global design studio.</span>
-          <span class="fs-22  w-90 xl-w-95 sm-w-100 ls-minus-05px d-block mt-5px">We create design and brands that help companies grow.</span>
-        </div>
-        <div class="col-lg-2 col-md-3 col-sm-6 offset-xl-1 text-center text-md-start">
-          <ul class="fs-20 ls-minus-05px fw-600 sm-mb-5px">
-            <li><a href="demo-design-agency-about.html">Agency</a></li>
-            <li><a href="demo-design-agency-work.html">Projects</a></li>
-            <li><a href="demo-design-agency-expertise.html">Expertise</a></li>
-            <li><a href="demo-design-agency-contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div class="col-lg-2 col-md-3 col-sm-6 text-center text-md-start">
-          <ul class="fs-20 ls-minus-05px fw-600">
-            <li><a href="https://www.facebook.com/" target="_blank">Facebook</a></li>
-            <li><a href="http://www.dribbble.com" target="_blank">Dribbble</a></li>
-            <li><a href="http://www.behance.com/" target="_blank">Behance</a></li>
-            <li><a href="http://www.linkedin.com" target="_blank">Linkedin</a></li>
-          </ul>
+      <div class="row justify-content-center">
+        <div class="col-12 text-center">
+          <h3 class="text-white" id="some-id">
+            I'm here
+            <u class="typer text-warning" data-words="writing,making music," data-delay="100" data-deletedelay="1000" style="color: black"></u>
+            often.
+          </h3>
         </div>
       </div>
+    </div> <
+    /section>
+
+    
+    <footer class="footer">
+    <div class="container">
       <div class="row">
-        <div class="col-lg-8 text-center text-lg-start md-mb-15px">
-          <ul class="list-style-05  fs-18 fw-600">
-            <li>LDN</li>
-            <li>NYC</li>
-            <li>SYD</li>
-            <li>DXB</li>
-            <li>SGP</li>
-            <li>AHM</li>
-          </ul>
+        <div class="col-lg-6 position-relative mb-5 mb-sm-0">
+          <div class="position-absolute top-0 start-0 slice-pt ps-5 ps-lg-8"></div>
         </div>
-        <div class="col-lg-4 text-center text-lg-start">
-          <span class=" ls-minus-05px">&copy; 2024 Crafto. <span class="fw-600">The design agency</span></span>
+        <div class="col-lg-6">
+
+          <div class="text-center slice-ptb">
+            <h4 class="mb-4 mt-5 mt-lg-0">Time Open</h4>
+            <div class="mb-4">
+              <h5>Monday to Friday</h5>
+              <p>8:30 am to 5 pm</p>
+            </div>
+            
+            <h4 class="mb-4">Address</h4>
+            <div class="mb-4">
+              <h5>11, Akindenoh street Ota, Ogun State.</h5>
+              <p><a href="mailto:info@frithhilton.com.ng">Send Frith Hilton Mail</a></p>
+              
+            </div>
+            <h2 class="text-green mb-0 mt-5">
+              <i class="feather icon-phone-call"></i> (234) 815 813 2408
+            </h2>
+          </div>
         </div>
       </div>
     </div>
   </footer>
-  <!-- end footer -->
+    
+    <
+    footer class = "footer bg-black slice-pt" >
+    <div class="container">
+      <div class="row">
+        <div>
+          <h2 class="text-white display-2 mb-4">
+            <span class="typer text-white" id="some-id" data-words="Catch up!" data-delay="100">
+            </span>
+          </h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 col-lg-4 offset-lg-2">
+          <div class="social-icons icons-xl mt-5">
+            <a class="icon text-white" href="https://youtube.com/@frithhilton17?si=8pEsa1wf1KxLNvBK" target="_blank">
+              <i class="fab fa-youtube"></i>
+            </a>
+            <a class="icon text-white" href="https://www.tiktok.com/@frithhilton17" target="_blank">
+              <i class="fab fa-tiktok"></i>
+            </a>
+            <a class="icon text-white" href="https://www.twitter.com/frithhilton17" target="_blank">
+              <i class="fab fa-x-twitter"></i>
+            </a>
+            <a class="icon text-white" href="https://www.instagram.com/frithhilton17" target="_blank">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <hr class="mt-7" />
+      <div class="row text-center">
+        <div class="col-12">
+          <div class="developer-footer mb-2">
+            <img src="images/Leondev.png" alt="lEoNDɘv" width="80" height="80">
+          </div>
+          <p class="text-white mt-3 mb-4">
+            © <span id="getFullYear"></span>
+            <span class="text-pink-gradient">Howard Frith Hilton</span>
+          </p>
+        </div>
+      </div>
+    </div> <
+    /footer>
+    
+
 `;

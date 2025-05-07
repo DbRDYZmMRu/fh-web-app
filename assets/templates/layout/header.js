@@ -2,69 +2,48 @@ import { store } from "../../../global.js";
 
 
 export const header = `
-  <!-- start header -->
-  <header class="left-modern-header" id="navbar-menu">
-    <div class="left-modern-sidebar header-light bg-white">
-      <a class="navbar-brand section-link" href="demo-minimal-portfolio.html">
-        <img src="images/demo-minimal-portfolio-logo-black.png" data-at2x="images/demo-minimal-portfolio-logo-black@2x.png" alt="" class="default-logo">
-        <img src="images/demo-minimal-portfolio-logo-black.png" data-at2x="images/demo-minimal-portfolio-logo-black@2x.png" alt="" class="alt-logo">
-        <img src="images/demo-minimal-portfolio-mobile-logo-black@2x.png" data-at2x="images/demo-minimal-portfolio-mobile-logo-black@2x.png" alt="" class="mobile-logo">
-      </a>
-      <div class="toggle-icon">
-        <div class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-menu">
-          <span class="navbar-toggler-line"></span>
-          <span class="navbar-toggler-line"></span>
-          <span class="navbar-toggler-line"></span>
-          <span class="navbar-toggler-line"></span>
-        </div>
-      </div>
-      <div class="vertical-title">
-        <div class="title elements-social social-icon-style-10">
-          <ul class="extra-small-icon dark fw-600">
-            <li><a class="facebook" href="https://www.facebook.com/" target="_blank">Fb.</a> </li>
-            <li><a class="instagram" href="https://www.instagram.com/" target="_blank">Ig.</a></li>
-            <li><a class="twitter" href="http://www.twitter.com" target="_blank">Tw.</a></li>
-            <li><a class="behance" href="http://www.behance.com/" target="_blank">Be.</a> </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <!-- start navigation -->
-    <nav class="modern-sidebar-nav header-light bg-white">
-      <div class="h-100">
-        <div class="modern-side-menu" data-scroll-options='{ "theme": "light" }'>
-          <ul class="menu-item-list alt-font fw-600 ls-minus-1px">
-            <li @click.prevent="store.directPath('/home')" class="menu-item">
-              <span class="nav-link">Home</span>
+  
+  <header class="header">
+
+    <nav class="navbar navbar-light navbar-expand-lg navbar-default">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html"><img class="logo" src="images/logo.png" alt="Frith Hilton Logo" /></a>
+        
+        <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="icon-bar top-bar mt-0"></span>
+          <span class="icon-bar middle-bar"></span>
+          <span class="icon-bar bottom-bar"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse justify-content-center" id="navbarCollapse">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html"><span class="text-line"> Home </span></a>
             </li>
-            <li @click.prevent="store.directPath('/reader')" class="menu-item">
-              <span class="nav-link">Book reader</span>
+            <li class="nav-item dropdown">
+              <a @click="store.goToPublished" class="nav-link dropdown-toggle" href="#" id="navbar-pages" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="text-line"> Publications</span>
+              </a>
             </li>
-            <li @click.prevent="store.directPath('/musicpool')" class="menu-item">
-              <span class="nav-link">Music pool</span>
-            </li>
-            <li @click.prevent="store.directPath('/blog')" class="menu-item">
-              <span class="nav-link">Blog</span>
-            </li>
-            <li @click.prevent="store.directPath('/discover')" class="menu-item">
-              <span class="nav-link">Discover</span>
-            </li>
-            <li @click.prevent="store.directPath('/cookies')" class="menu-item">
-              <span class="nav-link">Cookies</span>
-            </li>
-          </ul>
-          <!--
-          <div class="mt-30">
-            <span class="d-block lh-24 fs-15 w-95">Looking for collaboration for your next creative project?</span>
-            <div class="mt-5px">
-              <i class="bi bi-envelope me-5px align-middle"></i><a href="mailto:hello@domain.com" class="text-dark-gray-hover fw-600 align-middle">hello@domain.com</a>
-            </div>
-          </div>
-          --->
-        </div>
-      </div>
-    </nav>
-  </header>
-  <!-- end header -->
+            
+            
+            <
+            li class = "nav-item" >
+            <a class="nav-link" href="pages/upcoming.html"><span class="text-line"> Upcoming Poetry</span></a> <
+            /li> <
+            li class = "nav-item" >
+            <a class="nav-link" href="pages/musicpool.html"><span class="text-line"> Musicpool </span></a> <
+            /li> <
+            li class = "nav-item" >
+            <a class="nav-link" href="pages/bio.html"><span class="text-line"> Bio </span></a> <
+            /li> <
+            li class = "nav-item" >
+            <a class="nav-link" href="cookies.html"><span class="text-line"> Cookies Policy </span></a> <
+            /li> <
+            /ul> <
+            /div> 
+              </div> <
+              /nav> 
+              </header>
 
 `;

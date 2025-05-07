@@ -4,6 +4,30 @@
 
 
 
+Here's the CSS files in the desired format:
+
+```
+"cssFiles": [
+"css/font-awesome/all.min.css",
+"css/feather/iconfont.css",
+"css/pe-icon-stroke/Pe-icon-7-stroke.css",
+"css/simple-line-icons/simple-line-icons.css",
+"css/themify-icons/themify-icons.css",
+"css/swiper/swiper.min.css",
+"css/magnific-popup/magnific-popup.css",
+"https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css",
+"https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css",
+"https://unpkg.com/boxicons@2.0.3/css/boxicons.min.css",
+"./style.css"
+],
+```
+
+Note that I removed the duplicate link to "css/pe-icon-stroke/Pe-icon-7-stroke.css" to avoid redundancy. Let me know if you need further assistance!
+
+
+
+
+
 
 
 
