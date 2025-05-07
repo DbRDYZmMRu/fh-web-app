@@ -20,8 +20,8 @@ export function initializeRouter() {
     console.log("Navigated to home");
   });
   
-  page("/reader", baseMiddleware, () => {
-    console.log("Navigated to reader");
+  page("/publications", baseMiddleware, () => {
+    console.log("Navigated to publications");
   });
   
   page("/musicpool", baseMiddleware, () => {
@@ -29,12 +29,12 @@ export function initializeRouter() {
     console.log("Navigated to musicpool");
   });
   
-  page("/blog", baseMiddleware, () => {
-    console.log("Navigated to blog");
+  page("/bio", baseMiddleware, () => {
+    console.log("Navigated to bio");
   });
   
-  page("/discover", baseMiddleware, () => {
-    console.log("Navigated to discover");
+  page("/upcoming", baseMiddleware, () => {
+    console.log("Navigated to upcoming");
   });
   
   page("/cookies", baseMiddleware, () => {

@@ -38,10 +38,10 @@ const config = reactive({
         albumData: 'path/to/album-data.json',
       }
     },
-    reader: {
-      path: '/reader', 
+    publications: {
+      path: '/publications', 
       view: {
-        primary: '../assets/templates/route/reader.js',
+        primary: '../assets/templates/route/publications.js',
       }, 
       images: {
         albumCover1: 'assets/images/logo.png',
@@ -73,10 +73,10 @@ const config = reactive({
         albumData: 'path/to/album-data.json',
       }
     },
-    blog: {
-      path: '/blog', 
+    bio: {
+      path: '/bio', 
       view: {
-        primary: '../assets/templates/route/blog.js',
+        primary: '../assets/templates/route/bio.js',
       }, 
       images: {
         albumCover1: 'assets/images/logo.png',
@@ -90,10 +90,10 @@ const config = reactive({
         albumData: 'path/to/album-data.json',
       }
     }, 
-    discover: {
-      path: '/discover', 
+    upcoming: {
+      path: '/upcoming', 
       view: {
-        primary: '../assets/templates/route/discover.js',
+        primary: '../assets/templates/route/upcoming.js',
       }, 
       images: {
         albumCover1: 'assets/images/logo.png',
